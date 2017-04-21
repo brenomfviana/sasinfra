@@ -514,7 +514,7 @@ function intersectionToSeg(subjectRange, constraintRange) {
 fc.computeIntervalUnit = computeIntervalUnit;
 fc.durationHasTime = durationHasTime;
 
-var dayIDs = [ 'sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat' ];
+var dayIDs = [ 'dom', 'seg', 'ter', 'qua', 'qui', 'sex', 'sab' ];
 var intervalUnits = [ 'year', 'month', 'week', 'day', 'hour', 'minute', 'second', 'millisecond' ];
 
 
@@ -8434,12 +8434,12 @@ Calendar.defaults = {
 	nextDayThreshold: '09:00:00', // 9am
 
 	// display
-	defaultView: 'month',
+	defaultView: 'mês',
 	aspectRatio: 1.35,
 	header: {
 		left: 'title',
 		center: '',
-		right: 'today prev,next'
+		right: 'hoje prev,next'
 	},
 	weekends: true,
 	weekNumbers: false,
@@ -8468,11 +8468,11 @@ Calendar.defaults = {
 		next: "next",
 		prevYear: "prev year",
 		nextYear: "next year",
-		year: 'year', // TODO: locale files need to specify this
-		today: 'today',
-		month: 'month',
-		week: 'week',
-		day: 'day'
+		year: 'ano', // TODO: locale files need to specify this
+		today: 'hoje',
+		month: 'mês',
+		week: 'semana',
+		day: 'dia'
 	},
 
 	buttonIcons: {
@@ -10855,7 +10855,7 @@ fcViews.agenda = {
 	'class': AgendaView,
 	defaults: {
 		allDaySlot: true,
-		allDayText: 'all-day',
+		allDayText: 'Dia Inteiro',
 		slotDuration: '00:30:00',
 		minTime: '00:00:00',
 		maxTime: '24:00:00',

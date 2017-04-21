@@ -74,7 +74,7 @@
             var form = $("<form></form>");
             form.append("<div class='row'></div>");
             form.find(".row")
-                .append("<div class='col-md-6'><div class='form-group'><label class='control-label'>Event Name</label><input class='form-control' placeholder='Insert Event Name' type='text' name='title'/></div></div>")
+                .append("<div class='col-md-6'><div class='form-group'><label class='control-label'>Nome do Usuário</label><input class='form-control' placeholder='Insira o nome' type='text' name='title'/></div></div>")
                 .append("<div class='col-md-6'><div class='form-group'><label class='control-label'>Category</label><select class='form-control' name='category'></select></div></div>")
                 .find("select[name='category']")
                 .append("<option value='bg-danger'>Danger</option>")
@@ -140,23 +140,23 @@
         var today = new Date($.now());
 
         var defaultEvents =  [{
-                title: 'Hey!',
+                title: 'Carlos',
                 start: new Date($.now() + 158000000),
-                className: 'bg-purple'
+                className: 'bg-warning'
             }, {
-                title: 'See John Deo',
+                title: 'João',
                 start: today,
                 end: today,
-                className: 'bg-danger'
+                className: 'bg-warning'
             }, {
-                title: 'Buy a Theme',
+                title: 'Monica',
                 start: new Date($.now() + 338000000),
-                className: 'bg-primary'
+                className: 'bg-warning'
             }];
 
         var $this = this;
         $this.$calendarObj = $this.$calendar.fullCalendar({
-            slotDuration: '00:15:00', /* If we want to split day time each 15minutes */
+            slotDuration: '00:30:00', /* If we want to split day time each 15minutes */
             minTime: '08:00:00',
             maxTime: '19:00:00',  
             defaultView: 'month',  
