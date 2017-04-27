@@ -23154,7 +23154,7 @@ div.hopscotch-bubble .hopscotch-bubble-arrow-container.down .hopscotch-bubble-ar
 }
 
 .form-group label {
-    width: 70px;
+    width: 120px;
     text-align: left;
 }
 
@@ -23179,7 +23179,7 @@ div.hopscotch-bubble .hopscotch-bubble-arrow-container.down .hopscotch-bubble-ar
 }
 
 .form-control {
-    width: 200px;
+    width: 300px;
 }
 
 #register {
@@ -23203,4 +23203,8 @@ div.hopscotch-bubble .hopscotch-bubble-arrow-container.down .hopscotch-bubble-ar
     background-color: #ffffff;
     border-color: #ffffff;
     color: #f29049;
+}
+
+.btn-register {
+    float: right;
 }
