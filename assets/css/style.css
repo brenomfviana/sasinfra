@@ -23178,8 +23178,8 @@ div.hopscotch-bubble .hopscotch-bubble-arrow-container.down .hopscotch-bubble-ar
     border-color: #f29049;
 }
 
-.form-control {
-    width: 300px;
+.form-group .input-text {
+    width: 350px;
 }
 
 #register {
@@ -23207,4 +23207,24 @@ div.hopscotch-bubble .hopscotch-bubble-arrow-container.down .hopscotch-bubble-ar
 
 .btn-register {
     float: right;
+}
+
+.form-group {
+    padding: 5px;
+    padding-left: 25px;
+}
+
+.form-birthday {
+    padding: 0px;
+    margin-left: 25px;
+    width: 400px;
+}
+
+.form-birthday select {
+    margin-right: 20px;
+    margin-left: 5px;
+}
+
+.header-title {
+    font-size: 15pt;
 }

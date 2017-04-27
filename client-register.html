@@ -44,26 +44,24 @@
                                         <form role="form">
                                             <div class="form-group">
                                                 <label class="control-label" for="f_name">Nome</label>
-                                                <input type="text" class="form-control" id="f_name" placeholder="" maxlength="100" required="required">
+                                                <input type="text" class="form-control input-text" id="f_name" placeholder="" maxlength="100" required="required">
                                             </div>
                                             <div class="form-group">
                                                 <label class="control-label" for="f_email">Email</label>
-                                                <input type="email" class="form-control" id="f_email" placeholder="" maxlength="55" required="required">
+                                                <input type="email" class="form-control input-text" id="f_email" placeholder="" maxlength="55" required="required">
                                             </div>
                                             <div class="form-group">
                                                 <label class="control-label" for="f_cpf">CPF</label>
-                                                <input type="text" class="form-control" id="f_cpf" placeholder="000.000.000-00" maxlength="12" required="required">
+                                                <input type="text" class="form-control input-text" id="f_cpf" placeholder="000.000.000-00" maxlength="12" required="required">
                                             </div>
                                             <div class="form-group">
                                                 <label class="control-label" for="f_phone">Telefone</label>
-                                                <input type="text" class="form-control" id="f_phone" placeholder="(DDD) 3000-0000" maxlength="12" required="required">
+                                                <input type="text" class="form-control input-text" id="f_phone" placeholder="(DDD) 3000-0000" maxlength="12" required="required">
                                             </div>
                                             <h5 class="m-t-20 m-b-10">Data de Nascimento</h5>
                                             <!-- inline -->
-                                            <div class="form-group form-register">
-                                                <div class="row">
-                                                    <div class="col-sm-3 col-md-3 col-xs-4">
-                                                        <label class="control-label " for="f_day">Dia</label>
+                                            <div class="form-inline form-birthday">
+                                                		<label class="control-label" for="f_day">Dia</label>
                                                         <select id="f_day" class="form-control" required="required">
                                                             <option selected="selected" disabled="disabled" value=""></option>
                                                             <option>1</option>
@@ -98,8 +96,7 @@
                                                             <option>30</option>
                                                             <option>31</option>
                                                         </select>
-                                                    </div>
-                                                    <div class="col-sm-3 col-md-3 col-xs-4">
+
                                                         <label class="control-label" for="f_month">Mês</label>
                                                         <select id="f_month" class="form-control" required="required">
                                                             <option selected="selected" disabled="disabled" value=""></option>
@@ -116,8 +113,7 @@
                                                             <option>11</option>
                                                             <option>12</option>
                                                         </select>
-                                                    </div>
-                                                    <div class="col-sm-3 col-md-3 col-xs-4">
+
                                                         <label class="control-label" for="f_year">Ano</label>
                                                         <select id="f_year" class="form-control" required="required">
                                                             <option selected="selected" disabled="disabled" value=""></option>
@@ -186,43 +182,42 @@
                                                             <option>1938</option>
                                                             <option>1937</option>
                                                         </select>
-                                                    </div>
-                                                </div>
+
                                             </div>
                                             <h5 class="m-t-20 m-b-10">Endereço</h5>
                                             <div class="form-group">
                                                 <label class="control-label" for="f_cep">CEP</label>
-                                                <input type="text" class="form-control" id="f_cep" placeholder="" maxlength="15" required="required">
+                                                <input type="text" class="form-control input-text" id="f_cep" placeholder="" maxlength="15" required="required">
                                             </div>
                                             <div class="form-group">
                                                 <label class="control-label" for="f_address">Logradouro</label>
-                                                <input type="text" class="form-control" id="f_address" placeholder="" required="required">
+                                                <input type="text" class="form-control input-text" id="f_address" placeholder="" required="required">
                                             </div>
                                             <div class="form-group">
                                                 <label class="control-label" for="f_complement">Complemento</label>
-                                                <input type="text" class="form-control" id="f_complement" placeholder="" required="required">
+                                                <input type="text" class="form-control input-text" id="f_complement" placeholder="" required="required">
                                             </div>
                                             <div class="form-group">
                                                 <label class="control-label" for="f_number">Número</label>
-                                                <input type="text" class="form-control" id="f_number" placeholder="" maxlength="6" required="required">
+                                                <input type="text" class="form-control input-text" id="f_number" placeholder="" maxlength="6" required="required">
                                             </div>
                                             <div class="form-group">
                                                 <label class="control-label" for="f_neighborhood">Bairro</label>
-                                                <input type="text" class="form-control" id="f_neighborhood" placeholder="" maxlength="100" required="required">
+                                                <input type="text" class="form-control input-text" id="f_neighborhood" placeholder="" maxlength="100" required="required">
                                             </div>
                                             <div class="form-group">
                                                 <label class="control-label" for="f_city">Cidade</label>
-                                                <input type="text" class="form-control" id="f_city" placeholder="" maxlength="40" required="required">
+                                                <input type="text" class="form-control input-text" id="f_city" placeholder="" maxlength="40" required="required">
                                             </div>
                                             <div class="form-group">
                                                 <label class="control-label" for="f_state">Estado</label>
-                                                <input type="text" class="form-control" id="f_state" placeholder="" maxlength="25" required="required">
+                                                <input type="text" class="form-control input-text" id="f_state" placeholder="" maxlength="25" required="required">
                                             </div>
                                             <div class="form-group">
                                                 <label class="control-label" for="f_country">País</label>
-                                                <input type="text" class="form-control" id="f_country" placeholder="" maxlength="25" required="required">
-                                            </div>
-                                            <input type="submit" class="btn btn-register send m-t-20" value="Cadastrar">
+                                                <input type="text" class="form-control input-text" id="f_country" placeholder="" maxlength="25" required="required">
+                                            </div><br>
+                                            <button type="submit" class="btn btn-register send m-t-20">Cadastrar</button>
                                         </form>
                                     </div>
                                 </div>
