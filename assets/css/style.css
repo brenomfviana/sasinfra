@@ -23121,7 +23121,7 @@ div.hopscotch-bubble .hopscotch-bubble-arrow-container.down .hopscotch-bubble-ar
   .f-register {
     margin-left: 32%;
     width: 40%;
-  } 
+  }
 }
 @media (min-width: 992px) {
   .login {
@@ -23131,7 +23131,7 @@ div.hopscotch-bubble .hopscotch-bubble-arrow-container.down .hopscotch-bubble-ar
   .f-register {
     margin-left: 32%;
     width: 40%;
-  } 
+  }
 }
 @media (min-width: 1200px) {
   .login {
@@ -23139,14 +23139,16 @@ div.hopscotch-bubble .hopscotch-bubble-arrow-container.down .hopscotch-bubble-ar
     width: 40%;
   }
   .f-register {
-    margin-left: 32%;
+    margin-left: 27%;
     width: 40%;
-  } 
+  }
 }
 
 #form {
     padding-top: 50px;
 }
+
+
 
 .form-group {
     margin-top: 5px;
@@ -23179,7 +23181,7 @@ div.hopscotch-bubble .hopscotch-bubble-arrow-container.down .hopscotch-bubble-ar
 }
 
 .form-group .input-text {
-    width: 350px;
+    width: 375px;
 }
 
 #register {
@@ -23205,8 +23207,8 @@ div.hopscotch-bubble .hopscotch-bubble-arrow-container.down .hopscotch-bubble-ar
     color: #f29049;
 }
 
-.btn-register {
-    float: right;
+.form-button {
+    text-align: center;
 }
 
 .form-group {
@@ -23227,4 +23229,8 @@ div.hopscotch-bubble .hopscotch-bubble-arrow-container.down .hopscotch-bubble-ar
 
 .header-title {
     font-size: 15pt;
+}
+
+.f-register {
+    width: 600px;
 }
