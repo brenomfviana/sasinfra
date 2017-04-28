@@ -23234,3 +23234,37 @@ div.hopscotch-bubble .hopscotch-bubble-arrow-container.down .hopscotch-bubble-ar
 .f-register {
     width: 600px;
 }
+
+/******************************************************************************/
+/* Seach User */
+
+#user-search-results {
+    background-color: #111;
+    width: 100px;
+    height: 100px;
+}
+
+.search-user {
+    padding-left: 30px;
+}
+
+.search-user form label {
+    margin-right: 20px;
+}
+
+.search-user form input {
+    margin-right: 10px;
+}
+
+.search-user form input.input-text {
+    margin-left: 20px;
+}
+
+/******************************************************************************/
+/* All schedules */
+
+#all-schedules {
+    background-color: #111;
+    width: 100px;
+    height: 100px;
+}
