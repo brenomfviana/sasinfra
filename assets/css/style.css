@@ -23208,7 +23208,14 @@ div.hopscotch-bubble .hopscotch-bubble-arrow-container.down .hopscotch-bubble-ar
 }
 
 .form-button {
-    text-align: center;
+    text-align: right;
+}
+
+.form-button input:hover,
+.form-button input:active,
+.form-button input:focus {
+    background-color: #f29049;
+    color: #ffffff;
 }
 
 .form-group {
@@ -23223,6 +23230,7 @@ div.hopscotch-bubble .hopscotch-bubble-arrow-container.down .hopscotch-bubble-ar
 }
 
 .form-birthday select {
+    margin-top: 5px;
     margin-right: 20px;
     margin-left: 5px;
 }
@@ -23233,6 +23241,11 @@ div.hopscotch-bubble .hopscotch-bubble-arrow-container.down .hopscotch-bubble-ar
 
 .f-register {
     width: 600px;
+}
+
+.sheading {
+    margin-top: 25px !important;
+    margin-bottom: 20px !important;
 }
 
 /******************************************************************************/
