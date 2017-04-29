@@ -23253,12 +23253,29 @@ div.hopscotch-bubble .hopscotch-bubble-arrow-container.down .hopscotch-bubble-ar
 
 #user-search-results {
     background-color: #111;
-    width: 100px;
-    height: 100px;
+    width: 100%;
+    height: 100%;
+}
+
+#search-user-btn {
+    margin-top: 0px !important;
+}
+
+#search-user-btn:hover,
+#search-user-btn:active,
+#search-user-btn:focus {
+    background-color: #f29049;
+    color: #ffffff;
+}
+
+
+.radio {
+    margin-top: -2px !important;
 }
 
 .search-user {
     padding-left: 30px;
+    margin-bottom: 20px;
 }
 
 .search-user form label {
@@ -23271,6 +23288,10 @@ div.hopscotch-bubble .hopscotch-bubble-arrow-container.down .hopscotch-bubble-ar
 
 .search-user form input.input-text {
     margin-left: 20px;
+}
+
+table tbody tr th {
+    width: 75%;
 }
 
 /******************************************************************************/
