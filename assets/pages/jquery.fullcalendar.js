@@ -75,15 +75,10 @@
             form.append("<div class='row'></div>");
             form.find(".row")
                 .append("<div class='col-md-6'><div class='form-group'><label class='control-label'>Nome do Usuário</label><input class='form-control' placeholder='Insira o nome' type='text' name='title'/></div></div>")
-                .append("<div class='col-md-6'><div class='form-group'><label class='control-label'>Category</label><select class='form-control' name='category'></select></div></div>")
+                .append("<div class='col-md-6'><div class='form-group'><label class='control-label'>Agendamento</label><select class='form-control' name='category'></select></div></div>")
                 .find("select[name='category']")
-                .append("<option value='bg-danger'>Danger</option>")
-                .append("<option value='bg-success'>Success</option>")
-                .append("<option value='bg-purple'>Purple</option>")
-                .append("<option value='bg-primary'>Primary</option>")
-                .append("<option value='bg-pink'>Pink</option>")
-                .append("<option value='bg-info'>Info</option>")
-                .append("<option value='bg-warning'>Warning</option></div></div>");
+                .append("<option value='bg-danger'>Auditório</option>")
+                .append("<option value='bg-primary'>Carro</option></div></div>");
             $this.$modal.find('.delete-event').hide().end().find('.save-event').show().end().find('.modal-body').empty().prepend(form).end().find('.save-event').unbind('click').click(function () {
                 form.submit();
             });
@@ -103,7 +98,7 @@
                     $this.$modal.modal('hide');
                 }
                 else{
-                    alert('You have to give a title to your event');
+                    alert('Coloque o seu nome');
                 }
                 return false;
                 

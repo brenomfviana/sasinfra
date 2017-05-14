@@ -18,15 +18,19 @@
         <!-- Modernizr js -->
         <script src="assets/js/modernizr.min.js"></script>
     </head>
-    <body>
-        <div class="client" <!-- begin page -->
+    <body class="fixed-left">
+        <div class="client">
             <div id="wrapper-page">
                 <!-- Top Bar Start -->
                 <div class="topbar">
-                    <nav class="navbar navbar-custom">
                         <div class="topbar-left">
-                            <a href="index.html" class="logo"> <i class="zmdi zmdi-group-work icon-c-logo white"></i> <span class="white">SaSINFRA</span></a>
+                            <a href="index.html" class="logo"> 
+                            <i class="zmdi zmdi-group-work icon-c-logo white"></i> 
+                            <span class="white">SaSINFRA</span></a>
                         </div>
+                        
+                        
+                    <nav class="navbar navbar-custom">
                         <ul class="nav navbar-nav pull-right">
                             <li class="nav-item dropdown notification-list">
                                 <a class="nav-link dropdown-toggle arrow-none waves-light waves-effect" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false"> <i class="zmdi zmdi-notifications-none noti-icon"></i> <span class="noti-icon-badge"></span> </a>
@@ -82,6 +86,8 @@
                     </nav>
                 </div>
                 <!-- Top Bar End -->
+                
+                
                 <!-- ============================================================== -->
                 <!-- Start right Content here -->
                 <!-- ============================================================== -->
@@ -124,43 +130,6 @@
                                                     <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Fechar</button>
                                                     <button type="button" class="btn btn-success save-event waves-effect waves-light">Criar agendamento</button>
                                                     <button type="button" class="btn btn-danger delete-event waves-effect waves-light" data-dismiss="modal">Delete</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Modal Add Category -->
-                                    <div class="modal fade none-border" id="add-category">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                                    <h5 class="modal-title">Add a category</h5>
-                                                </div>
-                                                <div class="modal-body p-20">
-                                                    <form role="form">
-                                                        <div class="row">
-                                                            <div class="col-md-6">
-                                                                <label class="control-label">Category Name</label>
-                                                                <input class="form-control form-white" placeholder="Enter name" type="text" name="category-name" />
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <label class="control-label">Choose Category Color</label>
-                                                                <select class="form-control form-white" data-placeholder="Choose a color..." name="category-color">
-                                                                    <option value="success">Success</option>
-                                                                    <option value="danger">Danger</option>
-                                                                    <option value="info">Info</option>
-                                                                    <option value="pink">Pink</option>
-                                                                    <option value="primary">Primary</option>
-                                                                    <option value="warning">Warning</option>
-                                                                    <option value="inverse">Inverse</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Close</button>
-                                                    <button type="button" class="btn btn-danger waves-effect waves-light save-category" data-dismiss="modal">Save</button>
                                                 </div>
                                             </div>
                                         </div>
