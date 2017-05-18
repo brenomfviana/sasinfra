@@ -23022,28 +23022,32 @@ div.hopscotch-bubble .hopscotch-bubble-arrow-container.down .hopscotch-bubble-ar
 
 /*----------------------------------------------------------------------------*/
 /*----------------------------------------------------------------------------*/
-/*----------------------------------------------------------------------------*/
-/*----------------------------------------------------------------------------*/
-/*----------------------------------------------------------------------------*/
 /* Client */
+/*----------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------*/
 
 .client .footer {
     left: 0px;
 }
-
 .client #wrapper.enlarged .footer {
-    left: 0px; }
+    left: 0px;
+}
 .client #wrapper.enlarged .content-page {
-    margin-left: 0px; }
+    margin-left: 0px;
+}
 .client #wrapper.enlarged .navbar-custom {
-    margin-left: 0px; }
+    margin-left: 0px;
+}
 .client #wrapper.enlarged .topbar .topbar-left {
-    width: 0px !important; }
+    width: 0px !important;
+}
 .client .navbar-custom {
-    margin-left: 0px !important; }
+    margin-left: 0px !important;
+}
 .client .content-page {
     margin-left: 0px;
-    overflow: hidden; }
+    overflow: hidden;
+}
 
 .white {
     color: white;
@@ -23064,84 +23068,83 @@ div.hopscotch-bubble .hopscotch-bubble-arrow-container.down .hopscotch-bubble-ar
 
 /*----------------------------------------------------------------------------*/
 /*----------------------------------------------------------------------------*/
-/*----------------------------------------------------------------------------*/
-/*----------------------------------------------------------------------------*/
-/*----------------------------------------------------------------------------*/
 /* Admin */
+/*----------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------*/
 
 .footer {
     left: 0px;
 }
 .login {
-  padding: 20px;
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
-  -moz-border-radius: 5px;
-  background-clip: padding-box;
-  margin-top: 10%;
-  background-color: #ffffff;
-  box-shadow: 0 0px 24px 0 rgba(0, 0, 0, 0.06), 0 1px 0px 0 rgba(0, 0, 0, 0.02);
+    padding: 20px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    background-clip: padding-box;
+    margin-top: 10%;
+    background-color: #ffffff;
+    box-shadow: 0 0px 24px 0 rgba(0, 0, 0, 0.06), 0 1px 0px 0 rgba(0, 0, 0, 0.02);
 }
 .f-register {
-  padding: 20px;
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
-  -moz-border-radius: 5px;
-  background-clip: padding-box;
-  margin-top: 10%;
-  background-color: #ffffff;
-  box-shadow: 0 0px 24px 0 rgba(0, 0, 0, 0.06), 0 1px 0px 0 rgba(0, 0, 0, 0.02);
+    padding: 20px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    background-clip: padding-box;
+    margin-top: 10%;
+    background-color: #ffffff;
+    box-shadow: 0 0px 24px 0 rgba(0, 0, 0, 0.06), 0 1px 0px 0 rgba(0, 0, 0, 0.02);
 }
 @media (max-width: 544px) {
-  .login {
-    margin-left: 10%;
-    width: 80%;
-  }
-  .f-register {
-    margin-top: 10%;
-    margin-left: 10%;
-    width: 80%;
-  }
+    .login {
+        margin-left: 10%;
+        width: 80%;
+    }
+    .f-register {
+        margin-top: 10%;
+        margin-left: 10%;
+        width: 80%;
+    }
 }
 @media (min-width: 544px) {
-  .login {
-    margin-left: 32%;
-    width: 40%;
-  }
-  .f-register {
-    margin-left: 20%;
-    width: 60%;
-  }
+    .login {
+        margin-left: 32%;
+        width: 40%;
+    }
+    .f-register {
+        margin-left: 20%;
+        width: 60%;
+    }
 }
 @media (min-width: 768px) {
-  .login {
-    margin-left: 32%;
-    width: 40%;
-  }
-  .f-register {
-    margin-left: 32%;
-    width: 40%;
-  }
+    .login {
+        margin-left: 32%;
+        width: 40%;
+    }
+    .f-register {
+        margin-left: 32%;
+        width: 40%;
+    }
 }
 @media (min-width: 992px) {
-  .login {
-    margin-left: 32%;
-    width: 35%;
-  }
-  .f-register {
-    margin-left: 32%;
-    width: 40%;
-  }
+    .login {
+        margin-left: 32%;
+        width: 35%;
+    }
+    .f-register {
+        margin-left: 32%;
+        width: 40%;
+    }
 }
 @media (min-width: 1200px) {
-  .login {
-    margin-left: 32%;
-    width: 40%;
-  }
-  .f-register {
-    margin-left: 27%;
-    width: 40%;
-  }
+    .login {
+        margin-left: 32%;
+        width: 40%;
+    }
+    .f-register {
+        margin-left: 27%;
+        width: 40%;
+    }
 }
 
 #form {
@@ -23149,37 +23152,22 @@ div.hopscotch-bubble .hopscotch-bubble-arrow-container.down .hopscotch-bubble-ar
 }
 
 
-
 .form-group {
     margin-top: 5px;
     margin-bottom: 5px;
 }
-
 .form-group label {
     width: 120px;
     text-align: left;
 }
-
-.form-group .btn {
-    background-color: #f29049;
-    border-color: #f29049;
+.sinfra-btn,
+.sinfra-btn:hover,
+.sinfra-btn:visited,
+.sinfra-btn:active {
+    background-color: #f29049 !important;
+    border-color: #f29049 !important;
+    color: #ffffff !important;
 }
-
-.form-group .btn:hover {
-    background-color: #f29049;
-    border-color: #f29049;
-}
-
-.form-group .btn:visited {
-    background-color: #f29049;
-    border-color: #f29049;
-}
-
-.form-group .btn:active {
-    background-color: #f29049;
-    border-color: #f29049;
-}
-
 .form-group .input-text {
     width: 375px;
 }
@@ -23189,33 +23177,8 @@ div.hopscotch-bubble .hopscotch-bubble-arrow-container.down .hopscotch-bubble-ar
     margin-top: 20px;
 }
 
-#register .btn {
-    background-color: #f29049;
-    border-color: #f29049;
-    color: #ffffff;
-}
-
-#register .btn:hover {
-    background-color: #ffffff;
-    border-color: #ffffff;
-    color: #f29049;
-}
-
-#register .btn:active {
-    background-color: #ffffff;
-    border-color: #ffffff;
-    color: #f29049;
-}
-
 .form-button {
     text-align: right;
-}
-
-.form-button input:hover,
-.form-button input:active,
-.form-button input:focus {
-    background-color: #f29049;
-    color: #ffffff;
 }
 
 .form-group {
@@ -23228,7 +23191,6 @@ div.hopscotch-bubble .hopscotch-bubble-arrow-container.down .hopscotch-bubble-ar
     margin-left: 25px;
     width: 400px;
 }
-
 .form-birthday select {
     margin-top: 5px;
     margin-right: 20px;
@@ -23248,8 +23210,24 @@ div.hopscotch-bubble .hopscotch-bubble-arrow-container.down .hopscotch-bubble-ar
     margin-bottom: 20px !important;
 }
 
-/******************************************************************************/
+.app-search input[type="text"] {
+    background-color: #ffffff !important;
+    color: #f29049 !important;
+    border-color: #ffffff;
+    border-radius: 10px !important;
+}
+.app-search input[type="text"]::-webkit-input-placeholder,
+.app-search input[type="text"]::-moz-placeholder,
+.app-search input[type="text"]:-ms-input-placeholder,
+.app-search input[type="text"]:-moz-placeholder {
+    color: #f29049 !important;
+}
+
+/*----------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------*/
 /* Seach User */
+/*----------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------*/
 
 #user-search-results {
     background-color: #111;
@@ -23261,14 +23239,6 @@ div.hopscotch-bubble .hopscotch-bubble-arrow-container.down .hopscotch-bubble-ar
     margin-top: 0px !important;
 }
 
-#search-user-btn:hover,
-#search-user-btn:active,
-#search-user-btn:focus {
-    background-color: #f29049;
-    color: #ffffff;
-}
-
-
 .radio {
     margin-top: -2px !important;
 }
@@ -23277,15 +23247,12 @@ div.hopscotch-bubble .hopscotch-bubble-arrow-container.down .hopscotch-bubble-ar
     padding-left: 30px;
     margin-bottom: 20px;
 }
-
 .search-user form label {
     margin-right: 20px;
 }
-
 .search-user form input {
     margin-right: 10px;
 }
-
 .search-user form input.input-text {
     margin-left: 20px;
 }
@@ -23294,8 +23261,11 @@ table tbody tr th {
     width: 75%;
 }
 
-/******************************************************************************/
+/*----------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------*/
 /* All schedules */
+/*----------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------*/
 
 #all-schedules {
     background-color: #111;

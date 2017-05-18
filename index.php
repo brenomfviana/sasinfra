@@ -36,9 +36,9 @@
                                     <div class="text-xs-center">
                                         <h4 class="header-title m-t-0 m-b-20">Login</h4>
                                     </div>
-                                    <div id="form" class="text-xs-center form-inline">
+                                    <div id="form" class="text-xs-center form-inline" onsubmit="login();">
                                         <!-- LOGIN FORM -->
-                                        <form id="login" action="dashboard.html" method="post" autocomplete="off">
+                                        <form id="login" action="" method="post" autocomplete="off">
                                             <div class="form-group">
                                                 <label for="username"> Usuário: </label>
                                                 <input type="text" class="form-control" name="username" id="username" required="required">
@@ -51,7 +51,7 @@
                                             </div>
                                             <br>
                                             <div class="form-group">
-                                                <input type="submit" name="login" value="Entrar" class="btn btn-primary">
+                                                <input type="submit" name="login" value="Entrar" class="btn sinfra-btn btn-primary" onclick="login()">
                                             </div>
                                         </form>
                                     </div>
@@ -71,5 +71,23 @@
             </div>
             <!-- END wrapper -->
         </div>
+        
+        <script type="text/javascript">
+            // User login
+            function login() {
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        var html = document.getElementsByTagName("HTML")[0];
+                        html.innerHTML += this.responseText;
+                        alert("OK");
+                    } else if (this.status == 403 || this.status == 404) {
+                        alert("Ocorreu um error interno no servidor.\nO login não pode ser efetuado.");
+                    }
+                };
+                xhttp.open("GET", "login.phpa", true);
+                xhttp.send();
+            }
+        </script>
     </body>
 </html>

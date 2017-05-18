@@ -262,6 +262,10 @@
                                     <!-- LOGIN FORM -->
                                     <form role="form">
                                         <div class="form-group">
+                                            <label class="control-label" for="f_name">Username</label>
+                                            <input type="text" class="form-control input-text" id="f_username" placeholder="" maxlength="100" required="required">
+                                        </div><br>
+                                        <div class="form-group">
                                             <label class="control-label" for="f_name">Nome</label>
                                             <input type="text" class="form-control input-text" id="f_name" placeholder="" maxlength="100" required="required">
                                         </div>
@@ -436,7 +440,7 @@
                                             <input type="text" class="form-control input-text" id="f_country" placeholder="" maxlength="25" required="required">
                                         </div><br>
                                         <div class="form-button">
-                                            <input type="submit" class="btn btn-register send m-t-20" value="Cadastrar">
+                                            <input type="submit" class="btn sinfra-btn send m-t-20" value="Cadastrar">
                                         </div>
                                     </form>
                                 </div>

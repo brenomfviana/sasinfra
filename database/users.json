@@ -1,0 +1,28 @@
+{
+    "users" : [
+        {
+            "user" : "brenov", "password" : "ilovecoffee",
+            "account-type" : "admin", "name" : "Breno"
+        },
+        {
+            "user" : "patricia", "password" : "ilovedogs",
+            "account-type" : "admin", "name" : "Patrícia"
+        },
+        {
+            "user" : "jackson", "password" : "ihavenotime",
+            "account-type" : "client", "name" : "Jackson"
+        },
+        {
+            "user" : "coffee", "password" : "ilovebreno",
+            "account-type" : "client", "name" : "Coffee"
+        },
+        {
+            "user" : "caminho", "password" : "caminhocerto",
+            "account-type" : "client", "name" : "Caminho"
+        },
+        {
+            "user" : "dog", "password" : "ilovecaminho",
+            "account-type" : "client", "name" : "Dog"
+        }
+    ]
+}

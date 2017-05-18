@@ -269,42 +269,14 @@
                                     <input type="radio" name="item" value="by-name" class="radio" checked> <label>Por nome</label>
                                     <input type="radio" name="item" value="by-cpf" class="radio"> <label>Por CPF</label>
                                     <input type="text" class="form-control input-text" id="f_name" placeholder="" maxlength="100" required="required">
-                                    <input type="submit" class="btn btn-search-user send m-t-20" value="Buscar" id="search-user-btn">
+                                    <input type="submit" class="btn sinfra-btn send m-t-20" value="Buscar" id="search-user-btn">
                                 </form>
                             </div>
 
                             <div class="card-box">
                                 <h4 class="header-title m-t-0">Resultados</h4>
-                                <!--<p class="text-muted m-b-20 font-13">
-                                    See how aspects of the Bootstrap grid system work across multiple devices with a handy table.
-                                </p>-->
 
                                 <table class="table table-bordered table-striped m-b-0">
-                                    <!--<thead>
-                                        <tr>
-                                            <th></th>
-                                            <th class="text-xs-center">
-                                                Extra small<br>
-                                                <small>&lt;544px</small>
-                                            </th>
-                                            <th class="text-xs-center">
-                                                Small<br>
-                                                <small>≥544px</small>
-                                            </th>
-                                            <th class="text-xs-center">
-                                                Medium<br>
-                                                <small>≥768px</small>
-                                            </th>
-                                            <th class="text-xs-center">
-                                                Large<br>
-                                                <small>≥992px</small>
-                                            </th>
-                                            <th class="text-xs-center">
-                                                Extra large<br>
-                                                <small>≥1200px</small>
-                                            </th>
-                                        </tr>
-                                    </thead>-->
                                     <tbody>
                                         <tr>
                                             <th class="text-nowrap" scope="row">User name</th>
