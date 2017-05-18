@@ -18,6 +18,7 @@
         <div class="client">
             <!-- Begin page -->
             <div id="wrapper">
+                
                 <!-- Top Bar Start -->
                 <div class="topbar">
                     <nav class="navbar navbar-custom">
@@ -27,6 +28,9 @@
                     </nav>
                 </div>
                 <!-- Top Bar End -->
+                
+                
+                
                 <!-- Start content -->
                 <div class="content">
                     <div class="container">
@@ -63,13 +67,17 @@
                     </div>
                     <!-- container -->
                 </div>
-                <!-- content -->
+                <!-- END content -->
+                
+                
+                
                 <!-- Footer -->
                 <footer class="footer text-right">
                     <span id="copyright">2017 © SaSINFRA</span>
                 </footer>
             </div>
             <!-- END wrapper -->
+            
         </div>
         
         <script type="text/javascript">
@@ -82,7 +90,7 @@
                         html.innerHTML += this.responseText;
                         alert("OK");
                     } else if (this.status == 403 || this.status == 404) {
-                        alert("Ocorreu um error interno no servidor.\nO login não pode ser efetuado.");
+                        alert("Ocorreu um erro.\nO login não pode ser efetuado.");
                     }
                 };
                 xhttp.open("GET", "login.phpa", true);

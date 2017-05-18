@@ -23,11 +23,13 @@
             <div id="wrapper-page">
                 <!-- Top Bar Start -->
                 <div class="topbar">
-                        <div class="topbar-left">
-                            <a href="index.html" class="logo"> 
-                            <i class="zmdi zmdi-group-work icon-c-logo white"></i> 
-                            <span class="white">SaSINFRA</span></a>
-                        </div>
+                    
+                    <!-- LOGO -->
+                    <div class="topbar-left">
+                        <a href="index.php" class="logo"> 
+                        <i class="zmdi zmdi-group-work icon-c-logo white"></i> 
+                        <span class="white">SaSINFRA</span></a>
+                    </div>
                         
                         
                     <nav class="navbar navbar-custom">
@@ -87,10 +89,10 @@
                 </div>
                 <!-- Top Bar End -->
                 
-                
                 <!-- ============================================================== -->
                 <!-- Start right Content here -->
                 <!-- ============================================================== -->
+                
                 <div class="content-page">
                     <!-- Start content -->
                     <div class="content">
@@ -111,10 +113,8 @@
                                             <div class="col-md-9">
                                                 <div id="calendar"></div>
                                             </div>
-
                                             <!-- end col -->
                                         </div>
-
                                         <!-- end row -->
                                     </div>
                                     <!-- BEGIN MODAL -->
@@ -148,9 +148,12 @@
                     <!-- content -->
                 </div>
                 <!-- End content-page -->
+                
                 <!-- ============================================================== -->
                 <!-- End Right content here -->
                 <!-- ============================================================== -->
+                
+                
                 <footer class="footer text-right">
                     2017 © SaSINFRA.        
                 </footer>

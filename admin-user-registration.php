@@ -1,3 +1,13 @@
+<?php
+    // Check login
+    if (isset($_POST["username"]) &&
+        isset($_POST["name"]) &&
+        isset($_POST["password"])) {
+        // 
+        echo("<h1 stile=\"color=#111\">PQP</h1>");
+    }
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -27,7 +37,7 @@
 
                 <!-- LOGO -->
                 <div class="topbar-left">
-                    <a href="index.html" class="logo">
+                    <a href="index.php" class="logo">
                         <i class="zmdi zmdi-group-work icon-c-logo white"></i>
                         <span class="white">SaSINFRA</span></a>
                 </div>
@@ -145,12 +155,6 @@
                         </li>
 
                         <li class="nav-item dropdown notification-list">
-                            <a class="nav-link waves-effect waves-light right-bar-toggle" href="javascript:void(0);">
-                                <i class="zmdi zmdi-format-subject noti-icon"></i>
-                            </a>
-                        </li>
-
-                        <li class="nav-item dropdown notification-list">
                             <a class="nav-link dropdown-toggle arrow-none waves-effect waves-light nav-user" data-toggle="dropdown" href="#" role="button"
                                aria-haspopup="false" aria-expanded="false">
                                 <img src="assets/images/users/avatar-1.jpg" alt="user" class="img-circle">
@@ -197,27 +201,27 @@
                         	<li class="text-muted menu-title">Navegação</li>
 
                             <li class="has_sub">
-                                <a href="dashboard.html" class="waves-effect"><span class="label label-pill label-primary pull-xs-right">1</span><i class="zmdi zmdi-view-dashboard"></i><span> Dashboard </span> </a>
+                                <a href="dashboard.php" class="waves-effect"><span class="label label-pill label-primary pull-xs-right">1</span><i class="zmdi zmdi-view-dashboard"></i><span> Dashboard </span> </a>
                             </li>
 
                             <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect"><i class="zmdi zmdi-calendar"></i> <span> Agendamentos </span> <span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">
-                                    <li><a href="pages/scheduling/scheduling-registration.html">Cadastrar novo tipo</a></li>
-                                    <li><a href="pages/scheduling/admin-scheduling.html">Listar agendamentos</a></li>
+                                    <li><a href="pages/scheduling/scheduling-registration.php">Cadastrar novo tipo</a></li>
+                                    <li><a href="pages/scheduling/admin-scheduling.php">Listar agendamentos</a></li>
                                 </ul>
                             </li>
 
                             <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect"><i class="zmdi ion-person"></i><span> Usuários </span> <span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">
-                                    <li><a href="pages/user/user-registration.html">Cadastrar usuário</a></li>
-                                    <li><a href="pages/user/admin-search-user.html">Buscar usuários</a></li>
+                                    <li><a href="pages/user/user-registration.php">Cadastrar usuário</a></li>
+                                    <li><a href="pages/user/admin-search-user.php">Buscar usuários</a></li>
                                 </ul>
                             </li>
 
                             <li class="has_sub">
-                                <a href="calendar.html" class="waves-effect"><span class="label label-pill label-primary pull-xs-right"></span><i class="zmdi zmdi-calendar-check"></i><span> Calendário </span> </a>
+                                <a href="calendar.php" class="waves-effect"><span class="label label-pill label-primary pull-xs-right"></span><i class="zmdi zmdi-calendar-check"></i><span> Calendário </span> </a>
                             </li>
 
                         </ul>
@@ -260,7 +264,7 @@
                                 </div>
                                 <div class="form-inline">
                                     <!-- LOGIN FORM -->
-                                    <form role="form">
+                                    <form role="form" method="post">
                                         <div class="form-group">
                                             <label class="control-label" for="f_name">Username</label>
                                             <input type="text" class="form-control input-text" id="f_username" placeholder="" maxlength="100" required="required">
@@ -452,8 +456,6 @@
 
                 </div> <!-- content -->
 
-
-
             </div>
             <!-- End content-page -->
 
@@ -461,128 +463,12 @@
             <!-- ============================================================== -->
             <!-- End Right content here -->
             <!-- ============================================================== -->
-
-
-            <!-- Right Sidebar -->
-            <div class="side-bar right-bar">
-                <div class="nicescroll">
-                    <ul class="nav nav-tabs text-xs-center">
-                        <li class="nav-item">
-                            <a href="#home-2"  class="nav-link active" data-toggle="tab" aria-expanded="false">
-                                Activity
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#messages-2" class="nav-link" data-toggle="tab" aria-expanded="true">
-                                Settings
-                            </a>
-                        </li>
-                    </ul>
-
-                    <div class="tab-content">
-                        <div class="tab-pane fade in active" id="home-2">
-                            <div class="timeline-2">
-                                <!--<div class="time-item">
-                                    <div class="item-info">
-                                        <small class="text-muted">5 minutes ago</small>
-                                        <p><strong><a href="#" class="text-info">John Doe</a></strong> Uploaded a photo <strong>"DSC000586.jpg"</strong></p>
-                                    </div>
-                                </div>
-
-                                <div class="time-item">
-                                    <div class="item-info">
-                                        <small class="text-muted">30 minutes ago</small>
-                                        <p><a href="" class="text-info">Lorem</a> commented your post.</p>
-                                        <p><em>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam laoreet tellus ut tincidunt euismod. "</em></p>
-                                    </div>
-                                </div>
-
-                                <div class="time-item">
-                                    <div class="item-info">
-                                        <small class="text-muted">59 minutes ago</small>
-                                        <p><a href="" class="text-info">Jessi</a> attended a meeting with<a href="#" class="text-success">John Doe</a>.</p>
-                                        <p><em>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam laoreet tellus ut tincidunt euismod. "</em></p>
-                                    </div>
-                                </div>
-
-                                <div class="time-item">
-                                    <div class="item-info">
-                                        <small class="text-muted">1 hour ago</small>
-                                        <p><strong><a href="#" class="text-info">John Doe</a></strong>Uploaded 2 new photos</p>
-                                    </div>
-                                </div>
-
-                                <div class="time-item">
-                                    <div class="item-info">
-                                        <small class="text-muted">3 hours ago</small>
-                                        <p><a href="" class="text-info">Lorem</a> commented your post.</p>
-                                        <p><em>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam laoreet tellus ut tincidunt euismod. "</em></p>
-                                    </div>
-                                </div>
-
-                                <div class="time-item">
-                                    <div class="item-info">
-                                        <small class="text-muted">5 hours ago</small>
-                                        <p><a href="" class="text-info">Jessi</a> attended a meeting with<a href="#" class="text-success">John Doe</a>.</p>
-                                        <p><em>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam laoreet tellus ut tincidunt euismod. "</em></p>
-                                    </div>
-                                </div>-->
-                            </div>
-                        </div>
-
-                        <div class="tab-pane fade" id="messages-2">
-
-                            <div class="row m-t-20">
-                                <div class="col-xs-8">
-                                    <h5 class="m-0">Notifications</h5>
-                                    <p class="text-muted m-b-0"><small>Do you need them?</small></p>
-                                </div>
-                                <div class="col-xs-4 text-right">
-                                    <input type="checkbox" checked data-plugin="switchery" data-color="#64b0f2" data-size="small"/>
-                                </div>
-                            </div>
-
-                            <div class="row m-t-20">
-                                <div class="col-xs-8">
-                                    <h5 class="m-0">API Access</h5>
-                                    <p class="m-b-0 text-muted"><small>Enable/Disable access</small></p>
-                                </div>
-                                <div class="col-xs-4 text-right">
-                                    <input type="checkbox" checked data-plugin="switchery" data-color="#64b0f2" data-size="small"/>
-                                </div>
-                            </div>
-
-                            <div class="row m-t-20">
-                                <div class="col-xs-8">
-                                    <h5 class="m-0">Auto Updates</h5>
-                                    <p class="m-b-0 text-muted"><small>Keep up to date</small></p>
-                                </div>
-                                <div class="col-xs-4 text-right">
-                                    <input type="checkbox" checked data-plugin="switchery" data-color="#64b0f2" data-size="small"/>
-                                </div>
-                            </div>
-
-                            <div class="row m-t-20">
-                                <div class="col-xs-8">
-                                    <h5 class="m-0">Online Status</h5>
-                                    <p class="m-b-0 text-muted"><small>Show your status to all</small></p>
-                                </div>
-                                <div class="col-xs-4 text-right">
-                                    <input type="checkbox" checked data-plugin="switchery" data-color="#64b0f2" data-size="small"/>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div> <!-- end nicescroll -->
-            </div>
-            <!-- /Right-bar -->
+            
+            
 
             <footer class="footer text-right">
                 2016 © SaSINFRA.
             </footer>
-
-
         </div>
         <!-- END wrapper -->
 
