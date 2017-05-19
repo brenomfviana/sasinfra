@@ -14,16 +14,16 @@
                 <li class="has_sub">
                     <a href="javascript:void(0);" class="waves-effect"><i class="zmdi zmdi-calendar"></i> <span> Agendamentos </span> <span class="menu-arrow"></span></a>
                     <ul class="list-unstyled">
-                        <li><a href="pages/scheduling/scheduling-registration.php">Cadastrar novo tipo</a></li>
-                        <li><a href="pages/scheduling/admin-scheduling.php">Listar agendamentos</a></li>
+                        <li><a href="admin-scheduling-registration.php">Cadastrar novo tipo</a></li>
+                        <li><a href="admin-scheduling.php">Listar agendamentos</a></li>
                     </ul>
                 </li>
 
                 <li class="has_sub">
                     <a href="javascript:void(0);" class="waves-effect"><i class="zmdi ion-person"></i><span> Usuários </span> <span class="menu-arrow"></span></a>
                     <ul class="list-unstyled">
-                        <li><a href="pages/user/user-registration.php">Cadastrar usuário</a></li>
-                        <li><a href="pages/user/admin-search-user.php">Buscar usuários</a></li>
+                        <li><a href="admin-user-registration.php">Cadastrar usuário</a></li>
+                        <li><a href="admin-search-user.php">Buscar usuários</a></li>
                     </ul>
                 </li>
 
