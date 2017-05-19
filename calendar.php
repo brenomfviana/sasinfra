@@ -46,7 +46,7 @@
                                         <li>
                                             <a href="#">Agendamentos</a>
                                         </li>
-                                        <li class="active">
+                                        <li>
                                             Calendar
                                         </li>
                                     </ol>
@@ -174,7 +174,7 @@
             <!-- ============================================================== -->
 
             <footer class="footer text-right">
-                2016 © SaSINFRA.
+               2017 © SaSINFRA.
             </footer>
         </div>
         <!-- END wrapper -->

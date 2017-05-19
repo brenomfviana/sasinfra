@@ -46,7 +46,7 @@
                                         <li>
                                             Usuários
                                         </li>
-                                        <li class="active">
+                                        <li>
                                             Buscar usuário
                                         </li>
                                     </ol>
@@ -104,7 +104,7 @@
             <!-- ============================================================== -->
 
             <footer class="footer text-right">
-                2016 © SaSINFRA.
+               2017 © SaSINFRA.
             </footer>
         </div>
         <!-- END wrapper -->

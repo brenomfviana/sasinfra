@@ -46,13 +46,18 @@
                                         <li>
                                             Agendamentos
                                         </li>
-                                        <li class="active">
+                                        <li>
                                             Cadastrar tipo de agendamento
                                         </li>
                                     </ol>
                                     <div class="clearfix"></div>
                                 </div>
 							</div>
+						</div>
+                        <!-- end row -->
+                        
+                        <div class="row">
+                            <!-- TODO -->
 						</div>
                         <!-- end row -->
                     </div>
@@ -67,7 +72,7 @@
             <!-- ============================================================== -->
 
             <footer class="footer text-right">
-                2016 © SaSINFRA.
+               2017 © SaSINFRA.
             </footer>
         </div>
         <!-- END wrapper -->

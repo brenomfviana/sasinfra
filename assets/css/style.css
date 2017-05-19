@@ -4997,7 +4997,7 @@ body.fixed-left .side-menu.left {
   padding: 0px 15px;
   margin-left: -10px; }
   .button-menu-mobile:hover {
-    color: #b8550d; }
+    color: #ffffff; }
 
 .sidebar-inner {
   height: 100%; }
@@ -23178,7 +23178,7 @@ div.hopscotch-bubble .hopscotch-bubble-arrow-container.down .hopscotch-bubble-ar
 }
 
 .form-button {
-    text-align: right;
+    text-align: left;
 }
 
 .form-group {
@@ -23221,6 +23221,10 @@ div.hopscotch-bubble .hopscotch-bubble-arrow-container.down .hopscotch-bubble-ar
 .app-search input[type="text"]:-ms-input-placeholder,
 .app-search input[type="text"]:-moz-placeholder {
     color: #b8550d !important;
+}
+
+.page-box {
+    margin-left: 10px !important;
 }
 
 /*----------------------------------------------------------------------------*/
