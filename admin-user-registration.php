@@ -60,7 +60,7 @@
                                 
                             <div class="form-inline page-box">
                                 <!-- LOGIN FORM -->
-                                <form role="form" method="post" action="register.php" onsubmit="register();">
+                                <form role="form" method="post" action="user-registration.php" onsubmit="register();">
                                     <div class="form-group">
                                         <label class="control-label" for="f_name">Username</label>
                                         <input type="text" class="form-control input-text" id="f_username" name="f_username" placeholder="" maxlength="100" required="required">
@@ -317,7 +317,7 @@
                         alert("Ocorreu um erro.\nO cadastro não pode ser efetuado.");
                     }
                 };
-                xhttp.open("GET", "register.php", true);
+                xhttp.open("GET", "user-registration.php", true);
                 xhttp.send();
             }
         </script>
