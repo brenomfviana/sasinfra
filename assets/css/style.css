@@ -5370,9 +5370,9 @@ body.fixed-left .side-menu.left {
     line-height: 34px;
     width: 34px;
     text-align: center;
-    color: rgba(255, 255, 255, 0.5); }
+    color: rgba(184, 85, 13, 0.5); }
     .app-search a:hover {
-      color: #ffffff; }
+      color: #B8550D; }
   .app-search .form-control,
   .app-search .form-control:focus {
     border: 1px solid rgba(129, 138, 145, 0.3);

@@ -56,45 +56,58 @@
 						</div>
                         <!-- end row -->
 
+
                         <div class="row">
+                            <div class="col-xs-12">
+                                <div class="card-box">
+
                                 
                             <div class="form-inline page-box">
                                 <!-- LOGIN FORM -->
                                 <form role="form" method="post" action="user-registration.php" onsubmit="register();">
+                                    <h5 class="m-t-20 m-b-10 sheading">Dados de Login</h5>
                                     <div class="form-group">
-                                        <label class="control-label" for="f_name">Username</label>
-                                        <input type="text" class="form-control input-text" id="f_username" name="f_username" placeholder="" maxlength="100" required="required">
+                                        <label class="control-label" for="f_name">Login*</label>
+                                        <input type="text" class="form-control input-text" id="f_username" name="f_username" placeholder="" maxlength="100" required="required" onKeyUp="userPress()">
+                                        <span id="userValue"></span>
+                                        <p>Mínimo 4 caracteres e máximo 16.</p>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label" for="f_password">Password</label>
-                                        <input type="password" class="form-control input-text" id="f_password" name="f_password" placeholder="" maxlength="100" required="required">
+                                        <label class="control-label" for="f_password">Senha*</label>
+                                        <input type="password" class="form-control input-text" id="f_password" name="f_password" placeholder="" maxlength="100" required="required" onKeyUp="passPress()">
+                                        <span id="passValue"></span>
+                                        <p>Mínimo 6 caracteres sendo todos alpha-numéricos.</p>
                                     </div>
                                     <div class="form-inline">
-                                        <h5 class="m-t-20 m-b-10 sheading">Tipo de Usuário</h5>
+                                        <h5 class="m-t-20 m-b-10 sheading">Dados Pessoais</h5>
                                         <input type="radio" id="f_client" name="f_usertype" value="client" class="radio" checked> <label id="f_client_label">Cliente</label>
                                         <input type="radio" id="f_admin" name="f_usertype" value="admin" class="radio"> <label>Administrador</label><br>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label" for="f_name">Nome</label>
-                                        <input type="text" class="form-control input-text" id="f_name" name="f_name" placeholder="" maxlength="100" required="required">
+                                        <label class="control-label" for="f_name">Nome*</label>
+                                        <input type="text" class="form-control input-text" id="f_name" name="f_name" placeholder="" maxlength="100" required="required" onKeyUp="namePress()">
+                                        <span id="nameValue"></span>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label" for="f_email">Email</label>
-                                        <input type="email" class="form-control input-text" id="f_email" name="f_email" placeholder="" maxlength="55" required="required">
+                                        <label class="control-label" for="f_email">Email*</label>
+                                        <input type="email" class="form-control input-text" id="f_email" name="f_email" placeholder="seuEmail@exemplo.com" maxlength="55" required="required" onKeyUp="emailPress()">
+                                        <span id="emailValue"></span>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label" for="f_cpf">CPF</label>
-                                        <input type="text" class="form-control input-text" id="f_cpf" name="f_cpf" placeholder="000.000.000-00" maxlength="12" required="required">
+                                        <label class="control-label" for="f_cpf">CPF*</label>
+                                        <input type="text" class="form-control input-text" id="f_cpf" name="f_cpf" placeholder="000.000.000-00" maxlength="14" required="required" onKeyUp="cpfPress()" OnKeyPress="formatar('###.###.###-##', this)">
+                                        <span id="cpfValue"></span>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label" for="f_phone">Telefone</label>
-                                        <input type="text" class="form-control input-text" id="f_phone" name="f_phone" placeholder="(DDD) 3000-0000" maxlength="12" required="required">
+                                        <label class="control-label" for="f_phone">Telefone*</label>
+                                        <input type="text" class="form-control input-text" id="f_phone" name="f_phone" placeholder="DDD 3000-0000" maxlength="13" required="required" onKeyUp="telPress()" OnKeyPress="formatar('## #####-####', this)">
+                                        <span id="telValue"></span>
                                     </div>
-                                    <h5 class="m-t-20 m-b-10 sheading">Data de Nascimento</h5>
+                                    <p class="m-t-20 m-b-10 sheading"><strong>Data de Nascimento</strong></p>
                                     <!-- inline -->
                                     <div class="form-inline form-birthday">
-                                        <label class="control-label" for="f_day">Dia</label>
-                                        <select id="f_day" name="f_day" class="form-control" required="required">
+                                        <label class="control-label" for="f_day">Dia*</label>
+                                        <select id="f_day" name="f_day" class="form-control" required="required" onchange="diaPress()">
                                             <option selected="selected" disabled="disabled" value=""></option>
                                             <option>1</option>
                                             <option>2</option>
@@ -129,8 +142,8 @@
                                             <option>31</option>
                                         </select>
 
-                                        <label class="control-label" for="f_month">Mês</label>
-                                        <select id="f_month" name="f_month" class="form-control" required="required">
+                                        <label class="control-label" for="f_month">Mês*</label>
+                                        <select id="f_month" name="f_month" class="form-control" required="required" onchange="diaPress()">
                                             <option selected="selected" disabled="disabled" value=""></option>
                                             <option>1</option>
                                             <option>2</option>
@@ -146,10 +159,9 @@
                                             <option>12</option>
                                         </select>
 
-                                        <label class="control-label" for="f_year">Ano</label>
-                                        <select id="f_year" name="f_year" class="form-control" required="required">
+                                        <label class="control-label" for="f_year">Ano*</label>
+                                        <select id="f_year" name="f_year" class="form-control" required="required" onchange="diaPress()">
                                             <option selected="selected" disabled="disabled" value=""></option>
-                                            <option>2000</option>
                                             <option>1999</option>
                                             <option>1998</option>
                                             <option>1997</option>
@@ -214,42 +226,50 @@
                                             <option>1938</option>
                                             <option>1937</option>
                                         </select>
+                                        <span id="diaValue"></span>
                                     </div>
-                                    <h5 class="m-t-20 m-b-10 sheading">Endereço</h5>
+                                    <p class="m-t-30 m-b-10 sheading"><strong>Endereço</strong></p>
                                     <div class="form-group">
-                                        <label class="control-label" for="f_cep">CEP</label>
-                                        <input type="text" class="form-control input-text" id="f_cep" name="f_cep" placeholder="" maxlength="15" required="required">
+                                        <label class="control-label" for="f_cep">CEP*</label>
+                                        <input type="text" class="form-control input-text" id="f_cep" name="f_cep" placeholder="" maxlength="9" required="required" onKeyUp="cepPress()"  OnKeyPress="formatar('#####-###', this)">
+                                        <span id="cepValue"></span>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label" for="f_address">Logradouro</label>
-                                        <input type="text" class="form-control input-text" id="f_address" name="f_address" placeholder="" required="required">
+                                        <label class="control-label" for="f_address">Logradouro*</label>
+                                        <input type="text" class="form-control input-text" id="f_address" name="f_address" placeholder="" required="required"onKeyUp="logPress()">
+                                        <span id="logValue"></span>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label" for="f_complement">Complemento</label>
-                                        <input type="text" class="form-control input-text" id="f_complement" name="f_complement" placeholder="" required="required">
+                                        <input type="text" class="form-control input-text" id="f_complement" name="f_complement" placeholder="">
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label" for="f_number">Número</label>
-                                        <input type="text" class="form-control input-text" id="f_number" name="f_number" placeholder="" maxlength="6" required="required">
+                                        <label class="control-label" for="f_number">Número*</label>
+                                        <input type="text" class="form-control input-text" id="f_number" name="f_number" placeholder="" maxlength="5" required="required"onKeyUp="numPress()">
+                                        <span id="numValue"></span>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label" for="f_neighborhood">Bairro</label>
-                                        <input type="text" class="form-control input-text" id="f_neighborhood" name="f_neighborhood" placeholder="" maxlength="100" required="required">
+                                        <label class="control-label" for="f_neighborhood">Bairro*</label>
+                                        <input type="text" class="form-control input-text" id="f_neighborhood" name="f_neighborhood" placeholder="" maxlength="100" required="required" onKeyUp="baiPress()">
+                                        <span id="baiValue"></span>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label" for="f_city">Cidade</label>
-                                        <input type="text" class="form-control input-text" id="f_city" name="f_city" placeholder="" maxlength="40" required="required">
+                                        <label class="control-label" for="f_city">Cidade*</label>
+                                        <input type="text" class="form-control input-text" id="f_city" name="f_city" placeholder="" maxlength="40" required="required" onKeyUp="cidPress()">
+                                        <span id="cidValue"></span>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label" for="f_state">Estado</label>
-                                        <input type="text" class="form-control input-text" id="f_state" name="f_state" placeholder="" maxlength="25" required="required">
+                                        <label class="control-label" for="f_state">Estado*</label>
+                                        <input type="text" class="form-control input-text" id="f_state" name="f_state" value="Rio Grande do Norte" maxlength="25" disabled>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label" for="f_country">País</label>
-                                        <input type="text" class="form-control input-text" id="f_country" name="f_country" placeholder="" maxlength="25" required="required">
+                                        <label class="control-label" for="f_country">País*</label>
+                                        <input type="text" class="form-control input-text" id="f_country" name="f_country" value="Brasil" maxlength="25" disabled>
                                     </div><br>
                                     <div class="form-button">
-                                        <input type="submit" class="btn sinfra-btn send m-t-20" value="Cadastrar">
+                                        <input type="submit" id="signin" class="btn sinfra-btn send m-t-20" value="Cadastrar">
+                                        <br/>
+                                        <span>Todos os campos marcados com * são obrigatórios!</span>
                                     </div>
                                 </form>
                             </div>
@@ -303,6 +323,7 @@
         <script src="assets/js/jquery.app.js"></script>
 
         <!-- Page specific js -->
+        <script src="assets/js/signinValidation.js"></script>
         <script src="assets/pages/jquery.dashboard.js"></script>
         
         <!-- User register -->
