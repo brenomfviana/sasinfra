@@ -60,8 +60,8 @@
 
                             <div class="form-inline search-user">
                                 <form role="form">
-                                    <input type="radio" name="item" value="by-name" class="radio" checked> <label>Por nome</label>
-                                    <input type="radio" name="item" value="by-cpf" class="radio"> <label>Por CPF</label>
+                                    <input type="radio" id="f_by_name" name="f_by_name" value="by-ame" class="radio" checked> <label>Por nome</label>
+                                    <input type="radio" id="f_by_cpf" name="f_by_cpf" value="by-cpf" class="radio"> <label>Por CPF</label>
                                     <input type="text" class="form-control input-text" id="f_name" placeholder="" maxlength="100" required="required">
                                     <input type="submit" class="btn sinfra-btn send m-t-20" value="Buscar" id="search-user-btn">
                                 </form>

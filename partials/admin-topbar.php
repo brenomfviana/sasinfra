@@ -3,7 +3,7 @@
 
     <!-- LOGO -->
     <div class="topbar-left">
-        <a href="index.html" class="logo">
+        <a href="index.php" class="logo">
             <i class="zmdi zmdi-group-work icon-c-logo white"></i>
             <span class="white">SaSINFRA</span></a>
     </div>
