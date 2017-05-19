@@ -39,10 +39,22 @@
                                 <div class="login">
                                     <div class="text-xs-center">
                                         <h4 class="header-title m-t-0 m-b-20">Login</h4>
+                                        <h6 id="error">
+                                            <?php
+                                                // Check for error
+                                                session_start();
+                                                if (isset($_SESSION["ERROR"])) {
+                                                    echo($_SESSION["ERROR"]."<br>");
+                                                    echo("If you are not registered "
+                                                        . "<a href=\"admin-user-registration.php\">"
+                                                        . "click here</a> to request a registration");
+                                                }
+                                            ?>
+                                        </h6>
                                     </div>
                                     <div id="form" class="text-xs-center form-inline" onsubmit="login();">
                                         <!-- LOGIN FORM -->
-                                        <form id="login" action="" method="post" autocomplete="off">
+                                        <form id="login" action="login.php" method="post" autocomplete="off">
                                             <div class="form-group">
                                                 <label for="username"> Usuário: </label>
                                                 <input type="text" class="form-control" name="username" id="username" required="required">
@@ -80,6 +92,8 @@
             
         </div>
         
+        <script src="assets/js/jquery.min.js"></script>
+        
         <script type="text/javascript">
             // User login
             function login() {
@@ -87,15 +101,28 @@
                 xhttp.onreadystatechange = function() {
                     if (this.readyState == 4 && this.status == 200) {
                         var html = document.getElementsByTagName("HTML")[0];
-                        html.innerHTML += this.responseText;
-                        alert("OK");
                     } else if (this.status == 403 || this.status == 404) {
                         alert("Ocorreu um erro.\nO login não pode ser efetuado.");
                     }
                 };
-                xhttp.open("GET", "login.phpa", true);
+                xhttp.open("GET", "login.php", true);
                 xhttp.send();
             }
+            // Check session
+            $(document).ready(function() {
+                $.ajax(
+                {
+                    post: "GET",
+                    url: "check-session.php"
+                }).done(function() 
+                {
+                    // alert("asd");
+                }).fail(function() 
+                {
+                    // alert("asds");
+                });
+            
+            });
         </script>
     </body>
 </html>
