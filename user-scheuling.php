@@ -23,15 +23,15 @@
             <div id="wrapper-page">
                 <!-- Top Bar Start -->
                 <div class="topbar">
-                    
+
                     <!-- LOGO -->
                     <div class="topbar-left">
-                        <a href="index.php" class="logo"> 
-                        <i class="zmdi zmdi-group-work icon-c-logo white"></i> 
+                        <a href="index.php" class="logo">
+                        <i class="zmdi zmdi-group-work icon-c-logo white"></i>
                         <span class="white">SaSINFRA</span></a>
                     </div>
-                        
-                        
+
+
                     <nav class="navbar navbar-custom">
                         <ul class="nav navbar-nav pull-right">
                             <li class="nav-item dropdown notification-list">
@@ -88,15 +88,17 @@
                     </nav>
                 </div>
                 <!-- Top Bar End -->
-                
+
                 <!-- ============================================================== -->
                 <!-- Start right Content here -->
                 <!-- ============================================================== -->
-                
+
                 <div class="content-page">
                     <!-- Start content -->
                     <div class="content">
+                        <!-- Start container -->
                         <div class="container">
+                            <!-- Start row -->
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="page-title-box">
@@ -138,28 +140,26 @@
                                 </div>
                                 <!-- end col-12 -->
                             </div>
-
                             <!-- end row -->
                         </div>
-
                         <!-- container -->
                     </div>
-
                     <!-- content -->
                 </div>
                 <!-- End content-page -->
-                
+
                 <!-- ============================================================== -->
                 <!-- End Right content here -->
                 <!-- ============================================================== -->
-                
-                
+
                 <footer class="footer text-right">
-                    2017 © SaSINFRA.        
+                    2017 © SaSINFRA.
                 </footer>
             </div>
             <!-- END wrapper -->
         </div>
+
+        
         <script>
             var resizefunc = [];
         </script>
