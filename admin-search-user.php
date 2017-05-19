@@ -60,9 +60,10 @@
 
                             <div class="form-inline search-user">
                                 <form role="form">
-                                    <input type="radio" id="f_by_name" name="item" value="by-ame" class="radio" checked> <label>Por nome</label>
-                                    <input type="radio" id="f_by_cpf" name="item" value="by-cpf" class="radio"> <label>Por CPF</label>
-                                    <input type="text" class="form-control input-text" id="f_name" placeholder="" maxlength="100" required="required">
+                                    <input type="radio" id="f_by_name" name="f_parameter" value="name" class="radio" checked> <label>Por nome</label>
+                                    <input type="radio" id="f_by_username" name="f_parameter" value="username" class="radio"> <label>Por username</label>
+                                    <input type="radio" id="f_by_cpf" name="f_parameter" value="cpf" class="radio"> <label>Por CPF</label>
+                                    <input type="text" class="form-control input-text" id="f_searchuser" placeholder="" maxlength="100">
                                     <input type="submit" class="btn sinfra-btn send m-t-20" value="Buscar" id="search-user-btn">
                                 </form>
                             </div>
@@ -72,7 +73,7 @@
 
                                 <table class="table table-bordered table-striped m-b-0">
                                     <tbody>
-                                        <tr>
+                                        <!--<tr>
                                             <th class="text-nowrap" scope="row">User name</th>
                                             <td> <a href="#">Remover</a> </td>
                                             <td> <a href="#">Atualizar dados</a> </td>
@@ -86,7 +87,7 @@
                                             <th class="text-nowrap" scope="row">User name</th>
                                             <td colspan="1"> <a href="#">Remover</a> </td>
                                             <td colspan="1"> <a href="#">Atualizar dados</a> </td>
-                                        </tr>
+                                        </tr>-->
                                     </tbody>
                                 </table>
                             </div>
