@@ -52,9 +52,9 @@
                                             ?>
                                         </h6>
                                     </div>
-                                    <div id="form" class="text-xs-center form-inline" onsubmit="login();">
+                                    <div id="form" class="text-xs-center form-inline">
                                         <!-- LOGIN FORM -->
-                                        <form id="login" action="login.php" method="post" autocomplete="off">
+                                        <form id="login" action="login.php" onsubmit="login();" method="post" autocomplete="off">
                                             <div class="form-group">
                                                 <label for="username"> Usuário: </label>
                                                 <input type="text" class="form-control" name="username" id="username" required="required">

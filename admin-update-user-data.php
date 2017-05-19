@@ -1,52 +1,3 @@
-<?php
-    // Check login
-    if (isset($_POST["f_username"]) &&
-        isset($_POST["f_password"]) &&
-        isset($_POST["f_name"]) &&
-        isset($_POST["f_email"]) &&
-        isset($_POST["f_cpf"]) &&
-        isset($_POST["f_phone"]) &&
-        isset($_POST["f_day"]) &&
-        isset($_POST["f_month"]) &&
-        isset($_POST["f_year"]) &&
-        isset($_POST["f_cep"]) &&
-        isset($_POST["f_address"]) &&
-        isset($_POST["f_complement"]) &&
-        isset($_POST["f_number"]) &&
-        isset($_POST["f_neighborhood"]) &&
-        isset($_POST["f_city"]) &&
-        isset($_POST["f_state"]) &&
-        isset($_POST["f_country"])) {
-        // Search by the user
-        // Open file
-        $users = json_decode(file_get_contents("database/users.json"), true);
-        // Remove the user
-        // Create a new user
-        $user = array("username" => $_POST["f_username"],
-            "password" => $_POST["f_password"],
-            "name" => $_POST["f_name"],
-            "email" => $_POST["f_email"],
-            "cpf" => $_POST["f_cpf"],
-            "phone" => $_POST["f_phone"],
-            "b_day" => $_POST["f_day"],
-            "b_month" => $_POST["f_month"],
-            "b_year" => $_POST["f_year"],
-            "cep" => $_POST["f_cep"],
-            "address" => $_POST["f_address"],
-            "complement" => $_POST["f_complement"],
-            "number" => $_POST["f_number"],
-            "neighborhood" => $_POST["f_neighborhood"],
-            "city" => $_POST["f_city"],
-            "state" => $_POST["f_state"],
-            "country" => $_POST["f_country"]);
-        echo("alert($users)");
-        // Add new user
-        array_push($users['users'], $user);
-        // Update content
-        file_put_contents('database/users.json', json_encode($users));
-    }
-?>
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -109,7 +60,7 @@
                                 
                             <div class="form-inline page-box">
                                 <!-- LOGIN FORM -->
-                                <form role="form" method="post">
+                                <form role="form" method="post" action="update-user-data.php" onsubmit="update();">
                                     <div class="form-group">
                                         <label class="control-label" for="f_username">Username</label>
                                         <input type="text" class="form-control input-text" id="f_username" name="f_username" placeholder="" maxlength="100" required="required">
@@ -348,5 +299,22 @@
 
         <!-- Page specific js -->
         <script src="assets/pages/jquery.dashboard.js"></script>
+        
+        <!-- Update user data -->
+        <script type="text/javascript">
+            // User registration
+            function update() {
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        var html = document.getElementsByTagName("HTML")[0];
+                    } else if (this.status == 403 || this.status == 404) {
+                        alert("Ocorreu um erro.\nO cadastro não pode ser efetuado.");
+                    }
+                };
+                xhttp.open("GET", "update-user-data.php", true);
+                xhttp.send();
+            }
+        </script>
     </body>
 </html>
