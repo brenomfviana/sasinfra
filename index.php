@@ -44,10 +44,10 @@
                                                 // Check for error
                                                 session_start();
                                                 if (isset($_SESSION["ERROR"])) {
-                                                    echo($_SESSION["ERROR"]."<br>");
-                                                    echo("If you are not registered "
+                                                    echo("Usuário não registrado." ."<br>");
+                                                    echo("Se você não tiver cadastro "
                                                         . "<a href=\"admin-user-registration.php\">"
-                                                        . "click here</a> to request a registration");
+                                                        . "click aqui</a> para requisitar o cadastro.");
                                                 }
                                             ?>
                                         </h6>

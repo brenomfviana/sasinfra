@@ -272,6 +272,9 @@
                                         <span>Todos os campos marcados com * são obrigatórios!</span>
                                     </div>
                                 </form>
+                                
+                                
+<button type="button" onclick="register()">Change Content</button>
                             </div>
 						</div>
                         <!-- end row -->
@@ -334,6 +337,7 @@
                 xhttp.onreadystatechange = function() {
                     if (this.readyState == 4 && this.status == 200) {
                         var html = document.getElementsByTagName("HTML")[0];
+                        alert ("entrou");
                     } else if (this.status == 403){
                         alert ("error 403");
                         window.location.pathname = '/pages-403.php';
