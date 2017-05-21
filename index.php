@@ -54,7 +54,7 @@
                                     </div>
                                     <div id="form" class="text-xs-center form-inline">
                                         <!-- LOGIN FORM -->
-                                        <form id="login" action="login.php" onsubmit="login();" method="post" autocomplete="off">
+                                        <form id="login" action="login.php" onsubmit="login()" method="post" autocomplete="off">
                                             <div class="form-group">
                                                 <label for="username"> Usuário: </label>
                                                 <input type="text" class="form-control" name="username" id="username" required="required">
@@ -105,7 +105,7 @@
                         alert("Ocorreu um erro.\nO login não pode ser efetuado.");
                     }
                 };
-                xhttp.open("GET", "login.php", true);
+                xhttp.open("POST", "login.php", true);
                 xhttp.send();
             }
             // Check session
