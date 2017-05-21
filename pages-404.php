@@ -25,7 +25,7 @@
                 <h3 class="text-uppercase text-white font-600">Página não encontrada</h3>
                 <p class="text-white m-t-30"></p>
                 <br>
-                <a class="btn btn-pink waves-effect waves-light" href="index.html"> Return Home</a>
+                <a class="btn btn-pink waves-effect waves-light" href="index.php"> Voltar.</a>
 
             </div>
 

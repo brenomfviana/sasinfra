@@ -1,4 +1,17 @@
 document.getElementById("signin").disabled = true;
+var userBool = false;
+var passBool = false;
+var nameBool = false;
+var emailBool = false;
+var cpfBool = false;
+var telBool = false;
+var diaBool = false;
+var cepBool = false;
+var logBool = false;
+var numBool = false;
+var baiBool = false;
+var cidBool = false;
+
 
 function userPress(){
     var message = document.getElementById("userValue");    
@@ -7,12 +20,13 @@ function userPress(){
     
     if( s.length >= 4 && s.length <= 16){
         message.innerText = "✔";
+        userBool = true;
     }
     else {
         message.innerText = "✘ Tamanho não permitido";
     }
     
-     
+    check();
 }
 
 function passPress() {
@@ -28,6 +42,7 @@ function passPress() {
             
             if (s.length >= 6){
                 message.innerText = "✔";
+                passBool = true;
             }
             else {
                 message.innerText = "✘ Tamanho mínimo não atingido";
@@ -38,7 +53,7 @@ function passPress() {
             break;
         }   
     }
-     
+    check();
 }
 
 function namePress(){
@@ -48,12 +63,12 @@ function namePress(){
     
     if(s.length >= 4){
         message.innerText = "✔";
+        nameBool = true;
     }
     else {
         message.innerText = "✘ Tamanho não permitido";
     }
-    
-     
+    check();
 }
 
 function emailPress(){
@@ -72,14 +87,14 @@ function emailPress(){
         }
         if(dot && at){
             message.innerText = "✔";
+            emailBool = true;
             break;
         }
     }
     if (!dot || !at){
         message.innerText = "✘ Email inválido";
     }
-    
-     
+    check();
 }
 
 function cpfPress() {
@@ -94,6 +109,7 @@ function cpfPress() {
             
             if (s.length >= 14){
                 message.innerText = "✔";
+                cpfBool = true;
             }
             else {
                 message.innerText = "✘ CPF Inválido";
@@ -104,8 +120,7 @@ function cpfPress() {
             break;
         }   
     }
-       
-     
+    check();
 }
 
 function telPress() {
@@ -120,6 +135,7 @@ function telPress() {
             
             if (s.length >= 9){
                 message.innerText = "✔";
+                telBool = true;
             }
             else {
                 message.innerText = "✘ Telefone inválido";
@@ -130,7 +146,7 @@ function telPress() {
             break;
         }   
     }
-     
+    check();
 }
 
 function diaPress(){
@@ -153,6 +169,7 @@ function diaPress(){
             if(daySelect <= 31 && daySelect >0){
                 if (yearSelect < 2000  && yearSelect >0){
                     message.innerText = "✔";
+                    diaBool = true;
                 }
                 else{
                     message.innerText = "✘ Data inválida";
@@ -170,6 +187,7 @@ function diaPress(){
         if(daySelect <= 30  && daySelect >0){
             if (yearSelect < 2000 && yearSelect >0){
                 message.innerText = "✔";
+                diaBool = true;
             }
             else{
                 message.innerText = "✘ Data inválida";
@@ -184,6 +202,7 @@ function diaPress(){
         if(daySelect <= 29 && daySelect >0){
             if (yearSelect < 2000 && yearSelect >0){
                     message.innerText = "✔";
+                    diaBool = true;
                 }
                 else{
                     message.innerText = "✘ Data inválida";
@@ -197,8 +216,7 @@ function diaPress(){
     else {
         message.innerText = "✘ Data inválida";
     }
-    
-     
+    check();
 }
 
 function cepPress() {
@@ -213,6 +231,7 @@ function cepPress() {
             
             if (s.length >= 9){
                 message.innerText = "✔";
+                cepBool = true;
             }
             else {
                 message.innerText = "✘ CEP Inválido";
@@ -223,7 +242,7 @@ function cepPress() {
             break;
         }   
     }
-     
+    check();
 }
 
 function logPress(){
@@ -233,12 +252,12 @@ function logPress(){
     
     if( s.length >= 8){
         message.innerText = "✔";
+        logBool = true;
     }
     else {
         message.innerText = "✘ tamanho inválido";
     }
-    
-     
+    check();
 }
 
 function numPress() {
@@ -252,6 +271,7 @@ function numPress() {
             
             if (s.length <= 5 && s.length >= 1){
                 message.innerText = "✔";
+                numBool = true;
             }
         }
         else {
@@ -259,7 +279,7 @@ function numPress() {
             break;
         }   
     }
-     
+    check();
 }
 
 function baiPress(){
@@ -269,12 +289,12 @@ function baiPress(){
     
     if( s.length >= 4){
         message.innerText = "✔";
+        baiBool = true;
     }
     else {
         message.innerText = "✘ tamanho inválido";
     }
-    
-     
+    check();
 }
 
 function cidPress(){
@@ -283,12 +303,22 @@ function cidPress(){
     var s = cid.value;
     if( s==="Natal" || s==="natal" || s==="Parnamirim" || s==="parnamirim"){
         message.innerText = "✔";
+        cidBool = true;
     }
     else {
         message.innerText = "✘ Cidade inválida";
     }
-}
+    document.getElementById("signin").disabled = false;
     
+    check();
+}
+
+function check(){
+    if(userBool && passBool && nameBool && emailBool && cpfBool && telBool && diaBool && cepBool && logBool && numBool && baiBool && cidBool){
+        document.getElementById("signin").disabled = false;
+    }
+    
+}    
 
 function formatar(mascara, documento){
     
