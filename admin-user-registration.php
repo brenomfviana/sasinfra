@@ -64,7 +64,7 @@
                                 
                             <div class="form-inline page-box">
                                 <!-- LOGIN FORM -->
-                                <form role="form" method="post" action="javascript:register()" >
+                                <form id="cadastro" action="javascript:register()" method="post" autocomplete="off" >
                                     <h5 class="m-t-20 m-b-10 sheading">Dados de Login</h5>
                                     <div class="form-group">
                                         <label class="control-label" for="f_name">Login*</label>
@@ -241,7 +241,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label" for="f_complement">Complemento</label>
-                                        <input type="text" class="form-control input-text" id="f_complement" name="f_complement" placeholder="">
+                                        <input type="text" class="form-control input-text" id="f_complement" value=" " name="f_complement" placeholder="">
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label" for="f_number">Número*</label>
@@ -267,7 +267,7 @@
                                         <input type="text" class="form-control input-text" id="f_country" name="f_country" value="Brasil" maxlength="25" disabled>
                                     </div><br>
                                     <div class="form-button">
-                                        <input type="submit" id="signin" class="btn sinfra-btn send m-t-20" value="Cadastrar" onclick="register()">
+                                        <input type="submit" id="signin" class="btn sinfra-btn send m-t-20" value="Cadastrar">
                                         <br/>
                                         <span>Todos os campos marcados com * são obrigatórios!</span>
                                     </div>
@@ -331,21 +331,61 @@
         <script type="text/javascript">
             // User registration
             function register() {
+                
                 var xhttp = new XMLHttpRequest();
+                
+                var username     = document.getElementById('f_username').value;
+                var password     = document.getElementById('f_password').value;
+                var name         = document.getElementById('f_name').value;
+                var email        = document.getElementById('f_email').value;
+                var cpf          = document.getElementById('f_cpf').value;
+                var phone        = document.getElementById('f_phone').value;
+                var cep          = document.getElementById('f_cep').value;
+                var address      = document.getElementById('f_address').value;
+                var complement   = document.getElementById('f_complement').value;
+                var number       = document.getElementById('f_number').value;
+                var neighborhood = document.getElementById('f_neighborhood').value;
+                var city         = document.getElementById('f_city').value;
+                var state        = document.getElementById('f_state').value;
+                var country      = document.getElementById('f_country').value;
+                
+                var day     = document.getElementById('f_day').value;
+                var month   = document.getElementById('f_month').value;
+                var year    = document.getElementById('f_year').value;
+                
+                var usertype = document.getElementById("f_client").value;
+                
+                xhttp.open('POST', "user-registration.php?fusername=" + username + 
+                                    "&fpassword=" + password + 
+                                    "&fusertype=" + usertype + 
+                                    "&fname=" + name + 
+                                    "&femail=" + email + 
+                                    "&fcpf=" + cpf + 
+                                    "&fphone=" + phone + 
+                                    "&fday=" + day + 
+                                    "&fmonth=" + month + 
+                                    "&fyear=" + year + 
+                                    "&fcep=" + cep + 
+                                    "&faddress=" + address + 
+                                    "&fcomplement=" + complement + 
+                                    "&fnumber=" + number + 
+                                    "&fneighborhood=" + neighborhood + 
+                                    "&fcity=" + city + 
+                                    "&fstate=" + state + 
+                                    "&fcountry=" + country, true);
+                
                 xhttp.onreadystatechange = function() {
                     if (this.readyState == 4 && this.status == 200) {
-                        var html = document.getElementsByTagName("HTML")[0];
-                        alert ("entrou");
-                    } else if (this.status == 403){
-                        alert ("error 403");
-                        window.location.pathname = '/pages-403.php';
-                        
-                    } else if( this.status == 404) {
-                        alert ("error 404");
-                        window.location.pathname = '/pages-404.php';
+                        if (this.responseText.match("error:")) {
+                            document.getElementById("error").innerHTML = this.responseText.replace("error:","");
+                        } else {
+                            // Redirect
+                            window.location.href = this.responseText;
+                        }
+                    } else if (this.status == 403 || this.status == 404) {
+                        alert("Ocorreu um erro.\nO cadastro não pode ser efetuado.");
                     }
                 };
-                xhttp.open("POST", "user-registration.php", true);
                 xhttp.send();
             }
         </script>
