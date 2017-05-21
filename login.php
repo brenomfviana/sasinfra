@@ -1,7 +1,6 @@
 <?php
-    session_start();
-    // Check login
-    if (isset($_POST["username"]) && isset($_POST["password"])) {
+    // Check login 
+    if (isset($_REQUEST["username"]) && isset($_REQUEST["password"])) {
         // Read database
         $users = json_decode(file_get_contents("database/users.json"));
         // Found
@@ -11,10 +10,10 @@
         // Search by user
         foreach($users->users as $u) {
             // Check if is user
-            if ($_POST["username"] == $u->username) {
+            if ($_REQUEST["username"] === $u->username) {
                 $found = true;
                 // Check password
-                if ($_POST["password"] == $u->password) {
+                if ($_REQUEST["password"] == $u->password) {
                     $password = true;
                     setcookie("username", $_POST["username"], time()+100000);
 				    setcookie("password", $_POST["password"], time()+100000);
@@ -27,22 +26,21 @@
         if ($found) {
             // Check if the password is correct
             if ($password) {
+                session_start();
                 $_SESSION['user'] = $user;
                 // Redirect
                 if ($user->usertype == "admin") {
-                    header("Location: /dashboard.php");
+                    echo("/dashboard.php");
                 } else {
-                    header("Location: /user-scheduling.php");
+                    echo("/user-scheduling.php");
                 }
             } else {
                 // ERROR
-                $_SESSION["ERROR"] = "Invalid password!";
-                header("Location: /index.php");
+                echo("error:Senha inválida.<br>Se você ainda não é cadastrado <a href=\"admin-user-registration.php\">clique aqui</a> \npara se cadastrar.");
             }
         } else {
             // ERROR
-            $_SESSION["ERROR"] = "User not registered!";
-            header("Location: /index.php");
+            echo("error:Usuário não registrado.<br>Se você ainda não é cadastrado <a href=\"admin-user-registration.php\">clique aqui</a> \npara se cadastrar.");
         }
     }
 ?>

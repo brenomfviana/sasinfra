@@ -64,7 +64,7 @@
                                 
                             <div class="form-inline page-box">
                                 <!-- LOGIN FORM -->
-                                <form role="form" method="post" action="user-registration.php" onsubmit="register()">
+                                <form role="form" method="post" action="javascript:register()" >
                                     <h5 class="m-t-20 m-b-10 sheading">Dados de Login</h5>
                                     <div class="form-group">
                                         <label class="control-label" for="f_name">Login*</label>

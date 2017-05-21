@@ -40,21 +40,11 @@
                                     <div class="text-xs-center">
                                         <h4 class="header-title m-t-0 m-b-20">Login</h4>
                                         <h6 id="error">
-                                            <?php
-                                                // Check for error
-                                                session_start();
-                                                if (isset($_SESSION["ERROR"])) {
-                                                    echo("Usuário não registrado." ."<br>");
-                                                    echo("Se você não tiver cadastro "
-                                                        . "<a href=\"admin-user-registration.php\">"
-                                                        . "clique aqui</a> para requisitar o cadastro.");
-                                                }
-                                            ?>
                                         </h6>
                                     </div>
                                     <div id="form" class="text-xs-center form-inline">
                                         <!-- LOGIN FORM -->
-                                        <form id="login" action="login.php" onsubmit="login()" method="post" autocomplete="off">
+                                        <form id="login" action="javascript:login()" method="post" autocomplete="off">
                                             <div class="form-group">
                                                 <label for="username"> Usuário: </label>
                                                 <input type="text" class="form-control" name="username" id="username" required="required">
@@ -67,7 +57,7 @@
                                             </div>
                                             <br>
                                             <div class="form-group">
-                                                <input type="submit" name="login" value="Entrar" class="btn sinfra-btn btn-primary" onclick="login()">
+                                                <input type="submit" name="login" value="Entrar" class="btn sinfra-btn btn-primary">
                                             </div>
                                         </form>
                                     </div>
@@ -98,31 +88,28 @@
             // User login
             function login() {
                 var xhttp = new XMLHttpRequest();
+                
+                var username = document.getElementById('username').value;
+                var password = document.getElementById('password').value;
+                
+                xhttp.open('POST', "login.php?username=" + username 
+                    + "&password=" + password, true);
+                
                 xhttp.onreadystatechange = function() {
                     if (this.readyState == 4 && this.status == 200) {
-                        var html = document.getElementsByTagName("HTML")[0];
+                        // Check error
+                        if (this.responseText.match("error:")) {
+                            document.getElementById("error").innerHTML = this.responseText.replace("error:","");
+                        } else {
+                            // Redirect
+                            window.location.href = this.responseText;
+                        }
                     } else if (this.status == 403 || this.status == 404) {
                         alert("Ocorreu um erro.\nO login não pode ser efetuado.");
                     }
                 };
-                xhttp.open("POST", "login.php", true);
                 xhttp.send();
             }
-            // Check session
-            $(document).ready(function() {
-                $.ajax(
-                {
-                    post: "GET",
-                    url: "check-session.php"
-                }).done(function() 
-                {
-                    // alert("asd");
-                }).fail(function() 
-                {
-                    // alert("asds");
-                });
-            
-            });
         </script>
     </body>
 </html>
