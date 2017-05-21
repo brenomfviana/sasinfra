@@ -273,8 +273,6 @@
                                     </div>
                                 </form>
                                 
-                                
-<button type="button" onclick="register()">Change Content</button>
                             </div>
 						</div>
                         <!-- end row -->
@@ -347,7 +345,7 @@
                         window.location.pathname = '/pages-404.php';
                     }
                 };
-                xhttp.open("GET", "user-registration.php", true);
+                xhttp.open("POST", "user-registration.php", true);
                 xhttp.send();
             }
         </script>

@@ -47,7 +47,7 @@
                                                     echo("Usuário não registrado." ."<br>");
                                                     echo("Se você não tiver cadastro "
                                                         . "<a href=\"admin-user-registration.php\">"
-                                                        . "click aqui</a> para requisitar o cadastro.");
+                                                        . "clique aqui</a> para requisitar o cadastro.");
                                                 }
                                             ?>
                                         </h6>
