@@ -64,7 +64,7 @@
                                 
                             <div class="form-inline page-box">
                                 <!-- LOGIN FORM -->
-                                <form role="form" method="post" action="user-registration.php" onsubmit="register();">
+                                <form role="form" method="post" action="user-registration.php" onsubmit="register()">
                                     <h5 class="m-t-20 m-b-10 sheading">Dados de Login</h5>
                                     <div class="form-group">
                                         <label class="control-label" for="f_name">Login*</label>
@@ -267,7 +267,7 @@
                                         <input type="text" class="form-control input-text" id="f_country" name="f_country" value="Brasil" maxlength="25" disabled>
                                     </div><br>
                                     <div class="form-button">
-                                        <input type="submit" id="signin" class="btn sinfra-btn send m-t-20" value="Cadastrar">
+                                        <input type="submit" id="signin" class="btn sinfra-btn send m-t-20" value="Cadastrar" onclick="register()">
                                         <br/>
                                         <span>Todos os campos marcados com * são obrigatórios!</span>
                                     </div>
@@ -334,8 +334,13 @@
                 xhttp.onreadystatechange = function() {
                     if (this.readyState == 4 && this.status == 200) {
                         var html = document.getElementsByTagName("HTML")[0];
-                    } else if (this.status == 403 || this.status == 404) {
-                        alert("Ocorreu um erro.\nO cadastro não pode ser efetuado.");
+                    } else if (this.status == 403){
+                        alert ("error 403");
+                        window.location.pathname = '/pages-403.php';
+                        
+                    } else if( this.status == 404) {
+                        alert ("error 404");
+                        window.location.pathname = '/pages-404.php';
                     }
                 };
                 xhttp.open("GET", "user-registration.php", true);
