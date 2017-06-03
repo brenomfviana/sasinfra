@@ -78,12 +78,8 @@
                                 <div class="dropdown-menu dropdown-menu-right dropdown-arrow profile-dropdown " aria-labelledby="Preview">
                                     <!-- item-->
                                     <div class="dropdown-item noti-title">
-                                        <h5 class="text-overflow"><small>Bem-vindo!</small> </h5>
+                                        <h5 class="text-overflow"><small>Bem-vindo, <?php echo $_COOKIE["username"];?>!</small> </h5>
                                     </div>
-                                    <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item notify-item"> <i class="zmdi zmdi-account-circle"></i> <span>Perfil</span> </a>
-                                    <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item notify-item"> <i class="zmdi zmdi-settings"></i> <span>Configurações</span> </a>
                                     <!-- item-->
                                     <a href="javascript:void(0);" class="dropdown-item notify-item"> <i class="zmdi zmdi-power"></i> <span>Sair</span> </a>
                                 </div>
@@ -124,10 +120,6 @@
                                         <!-- end row -->
                                     </div>
                                     <!-- BEGIN MODAL -->
-                                    <?php echo $_COOKIE["username"]. '</br>';
-                                            echo $_SESSION['user']. '</br>';
-                                            echo "username". '</br>';
-                                    ?>
                                     <div class="modal fade none-border" id="event-modal">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
