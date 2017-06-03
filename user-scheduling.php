@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -120,6 +124,10 @@
                                         <!-- end row -->
                                     </div>
                                     <!-- BEGIN MODAL -->
+                                    <?php echo $_COOKIE["username"]. '</br>';
+                                            echo $_SESSION['user']. '</br>';
+                                            echo "username". '</br>';
+                                    ?>
                                     <div class="modal fade none-border" id="event-modal">
                                         <div class="modal-dialog">
                                             <div class="modal-content">

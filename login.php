@@ -15,9 +15,8 @@
                 // Check password
                 if ($_REQUEST["password"] == $u->password) {
                     $password = true;
-                    setcookie("username", $_POST["username"], time()+100000);
-				    setcookie("password", $_POST["password"], time()+100000);
-                    $user = $u;
+                    setcookie("username", $_REQUEST["username"], time() + (86400 * 30), "/"); // 86400 = 1 day
+                    $user = $u->username;
                 }
                 break;
             }
@@ -27,7 +26,7 @@
             // Check if the password is correct
             if ($password) {
                 session_start();
-                $_SESSION['user'] = $user;
+                $_SESSION['user'] = $_REQUEST["username"];
                 // Redirect
                 if ($user->usertype == "admin") {
                     echo("/dashboard.php");
@@ -36,11 +35,11 @@
                 }
             } else {
                 // ERROR
-                echo("error:Senha inválida.<br>Se você ainda não é cadastrado <a href=\"admin-user-registration.php\">clique aqui</a> \npara se cadastrar.");
+                echo("error:Senha inválida.<br>Solicite um adminstrador da SINFRA para se cadastrar.");
             }
         } else {
             // ERROR
-            echo("error:Usuário não registrado.<br>Se você ainda não é cadastrado <a href=\"admin-user-registration.php\">clique aqui</a> \npara se cadastrar.");
+            echo("error:Usuário não registrado.<br>Solicite um adminstrador da SINFRA para se cadastrar.");
         }
     }
 ?>
