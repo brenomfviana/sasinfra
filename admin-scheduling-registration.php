@@ -57,8 +57,40 @@
                         <!-- end row -->
                         
                         <div class="row">
-                            <!-- TODO -->
-						</div>
+                            <div class="col-xs-12">
+                                <div class="card-box">
+
+                                <div class="form-inline page-box">
+                                <!-- LOGIN FORM -->
+                                    <form id="cadastro-schedule" action="javascript:registerSchedule()" method="post" autocomplete="off" >
+                                    <h5 class="m-t-20 m-b-10 sheading">Dados do Agendamento</h5>
+                                    <div class="form-group">
+                                        <label class="control-label" for="type">Tipo*</label>
+                                        <input type="text" class="form-control input-text" id="type" name="type" placeholder="" maxlength="100" required="required" onKeyUp="typePress()">
+                                        <span id="typeValue"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label" for="role">Função*</label>
+                                        <input type="text" class="form-control input-text" id="role" name="role" placeholder="" maxlength="100" required="required" onKeyUp="rolePress()">
+                                        <span id="roleValue"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label" for="quantity">Quantidade*</label>
+                                        <input type="text" class="form-control input-text" id="quantity" name="quantity" placeholder="" maxlength="100" required="required" onKeyUp="quantPress()">
+                                        <span id="quantValue"></span>
+                                    </div>
+                                    <div class="form-button">
+                                        <input type="submit" id="submit" class="btn sinfra-btn send m-t-20" value="Cadastrar">
+                                        <br/>
+                                        <span>Todos os campos marcados com * são obrigatórios!</span>
+                                    </div>
+                                </form>
+                                
+                                </div>
+                        		</div>
+                            </div>
+                            <!-- end col -->
+                        </div>
                         <!-- end row -->
                     </div>
                     <!-- container -->
@@ -106,8 +138,39 @@
         <!-- App js -->
         <script src="assets/js/jquery.core.js"></script>
         <script src="assets/js/jquery.app.js"></script>
+        <script type="text/javascript" src="assets/js/schedule.sign.js"></script>
+        
+        <!-- Schedule register -->
+        <script type="text/javascript">
+            
+            // User registration
+            function registerSchedule() {
+                
+                var xhttp = new XMLHttpRequest();
+                
+                var type     = document.getElementById('type').value;
+                var role     = document.getElementById('role').value;
+                var quant    = document.getElementById('quantity').value;
+                
+                xhttp.open('POST', "schedule-registration.php?type=" + type + 
+                                    "&role=" + role + 
+                                    "&quantity=" + quant, true);
+                
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        if (this.responseText.match("error:")) {
+                            document.getElementById("error").innerHTML = this.responseText.replace("error:","");
+                        } else {
+                            // Redirect
+                            window.location.href = this.responseText;
+                        }
+                    } else if (this.status == 403 || this.status == 404) {
+                        alert("Ocorreu um erro.\nO cadastro não pode ser efetuado.");
+                    }
+                };
+                xhttp.send();
+            }
+        </script>
 
-        <!-- Page specific js -->
-        <script src="assets/pages/jquery.dashboard.js"></script>
     </body>
 </html>

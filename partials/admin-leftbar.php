@@ -8,7 +8,7 @@
                 <li class="text-muted menu-title">Navegação</li>
 
                 <li class="has_sub">
-                    <a href="dashboard.php" class="waves-effect"><span class="label label-pill label-primary pull-xs-right">1</span><i class="zmdi zmdi-view-dashboard"></i><span> Dashboard </span> </a>
+                    <a href="dashboard.php" class="waves-effect"><i class="zmdi zmdi-view-dashboard"></i><span> Dashboard </span> </a>
                 </li>
 
                 <li class="has_sub">
@@ -20,7 +20,7 @@
                 </li>
 
                 <li class="has_sub">
-                    <a href="javascript:void(0);" class="waves-effect"><i class="zmdi ion-person"></i><span> Usuários </span> <span class="menu-arrow"></span></a>
+                    <a href="javascript:void(0);" class="waves-effect"><i class="icon-user"></i><span> Usuários </span> <span class="menu-arrow"></span></a>
                     <ul class="list-unstyled">
                         <li><a href="admin-user-registration.php">Cadastrar usuário</a></li>
                         <li><a href="admin-search-user.php">Buscar usuários</a></li>

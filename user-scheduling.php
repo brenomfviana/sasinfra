@@ -127,7 +127,8 @@
                                                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                                                     <h5 class="modal-title">Adicione um agendamento</h5>
                                                 </div>
-                                                <div class="modal-body p-20"></div>
+                                                <div class="modal-body p-20">
+                                                </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Fechar</button>
                                                     <button type="button" class="btn btn-success save-event waves-effect waves-light">Criar agendamento</button>
@@ -141,6 +142,7 @@
                                 <!-- end col-12 -->
                             </div>
                             <!-- end row -->
+                            <input type="hidden" name="username" id="username" value="<?php echo $_COOKIE["username"];?>"></input>
                         </div>
                         <!-- container -->
                     </div>

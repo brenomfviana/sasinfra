@@ -1,9 +1,9 @@
 <!-- Top Bar Start -->
 <div class="topbar">
-
+    
     <!-- LOGO -->
     <div class="topbar-left">
-        <a href="index.php" class="logo">
+        <a href="index.php" class="logo" id="logo-tour">
             <i class="zmdi zmdi-group-work icon-c-logo white"></i>
             <span class="white">SaSINFRA</span></a>
     </div>
@@ -15,12 +15,6 @@
                 <button class="button-menu-mobile open-left waves-light waves-effect">
                     <i class="zmdi zmdi-menu"></i>
                 </button>
-            </li>
-            <li class="nav-item hidden-mobile">
-                <form role="search" class="app-search">
-                    <input type="text" placeholder="Search..." class="form-control">
-                    <a href=""><i class="fa fa-search"></i></a>
-                </form>
             </li>
         </ul>
 
@@ -37,7 +31,7 @@
                     </div>
 
                     <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                    <a href="javascript:leave();" class="dropdown-item notify-item">
                         <i class="zmdi zmdi-power"></i> <span>Sair</span>
                     </a>
 
@@ -48,5 +42,11 @@
 
     </nav>
 
+    <script type="text/javascript">
+        function leave(){
+            
+        }
+        
+    </script>
 </div>
 <!-- Top Bar End -->
