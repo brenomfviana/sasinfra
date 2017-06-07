@@ -85,6 +85,11 @@
             var form = $("<form></form>");
             form.append("<div class='row'></div>");
             form.find(".row")
+            .append("<div class='col-md-6'><div class='form-group'><label class='control-label'>Categoria</label><select class='form-control' name='category'></select></div></div>")
+                .find("select[name='category']")
+                .append("<option value='bg-danger'>Auditório</option>")
+                .append("<option value='bg-primary'>Carro</option>");
+            form.find(".row")
                 .append("<div class='col-md-6'><div class='form-group'><label class='control-label'>Horário</label><select class='form-control' name='time'></select></div></div>")
                 .find("select[name='time']")
                 .append("<option value='T07:00:00'>M12</option>")
@@ -92,12 +97,7 @@
                 .append("<option value='T10:50:00'>M56</option>")
                 .append("<option value='T13:00:00'>T12</option>")
                 .append("<option value='T14:55:00'>T34</option>")
-                .append("<option value='T16:50:00'>T56</option></div></div>")
-                
-                .append("<div class='col-md-6'><div class='form-group'><label class='control-label'>Categoria</label><select class='form-control' name='category'></select></div></div>")
-                .find("select[name='category']")
-                .append("<option value='bg-danger'>Auditório</option>")
-                .append("<option value='bg-primary'>Carro</option></div></div>");
+                .append("<option value='T16:50:00'>T56</option>")              ;
             $this.$modal.find('.delete-event').hide().end().find('.save-event').show().end().find('.modal-body').empty().prepend(form).end().find('.save-event').unbind('click').click(function () {
                 form.submit();
             });
