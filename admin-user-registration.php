@@ -325,7 +325,6 @@
 
         <!-- Page specific js -->
         <script src="assets/js/signinValidation.js"></script>
-        <script src="assets/pages/jquery.dashboard.js"></script>
         
         <!-- User register -->
         <script type="text/javascript">

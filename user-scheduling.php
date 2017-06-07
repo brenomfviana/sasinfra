@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -74,12 +78,8 @@
                                 <div class="dropdown-menu dropdown-menu-right dropdown-arrow profile-dropdown " aria-labelledby="Preview">
                                     <!-- item-->
                                     <div class="dropdown-item noti-title">
-                                        <h5 class="text-overflow"><small>Bem-vindo!</small> </h5>
+                                        <h5 class="text-overflow"><small>Bem-vindo, <?php echo $_COOKIE["username"];?>!</small> </h5>
                                     </div>
-                                    <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item notify-item"> <i class="zmdi zmdi-account-circle"></i> <span>Perfil</span> </a>
-                                    <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item notify-item"> <i class="zmdi zmdi-settings"></i> <span>Configurações</span> </a>
                                     <!-- item-->
                                     <a href="javascript:void(0);" class="dropdown-item notify-item"> <i class="zmdi zmdi-power"></i> <span>Sair</span> </a>
                                 </div>
@@ -127,7 +127,8 @@
                                                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                                                     <h5 class="modal-title">Adicione um agendamento</h5>
                                                 </div>
-                                                <div class="modal-body p-20"></div>
+                                                <div class="modal-body p-20">
+                                                </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Fechar</button>
                                                     <button type="button" class="btn btn-success save-event waves-effect waves-light">Criar agendamento</button>
@@ -141,6 +142,7 @@
                                 <!-- end col-12 -->
                             </div>
                             <!-- end row -->
+                            <input type="hidden" name="username" id="username" value="<?php echo $_COOKIE["username"];?>"></input>
                         </div>
                         <!-- container -->
                     </div>

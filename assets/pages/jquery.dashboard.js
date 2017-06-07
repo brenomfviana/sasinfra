@@ -28,41 +28,24 @@
     },
 
 
-    //creates Donut chart
-    Dashboard.prototype.createDonutChart = function(element, data, colors) {
-        Morris.Donut({
-            element: element,
-            data: data,
-            resize: true, //defaulted to true
-            colors: colors
-        });
-    },
-
     Dashboard.prototype.init = function() {
 
         //creating Stacked chart
         var $stckedData  = [
-            { y: '2005', a: 45, b: 180, c: 100 },
-            { y: '2006', a: 75,  b: 65, c: 80 },
-            { y: '2007', a: 100, b: 90, c: 56 },
-            { y: '2008', a: 75,  b: 65, c: 89 },
-            { y: '2009', a: 100, b: 90, c: 120 },
-            { y: '2010', a: 75,  b: 65, c: 110 },
-            { y: '2011', a: 50,  b: 40, c: 85 },
-            { y: '2012', a: 75,  b: 65, c: 52 },
-            { y: '2013', a: 50,  b: 40, c: 77 },
-            { y: '2014', a: 75,  b: 65, c: 90 },
-            { y: '2015', a: 100, b: 90, c: 130 }
+            { y: 'JAN', a: 45, b: 180 },
+            { y: 'FEV', a: 75,  b: 65 },
+            { y: 'MAR', a: 100, b: 90 },
+            { y: 'ABR', a: 75,  b: 65 },
+            { y: 'JUN', a: 100, b: 90 },
+            { y: 'JUL', a: 75,  b: 65 },
+            { y: 'AGO', a: 50,  b: 40 },
+            { y: 'SET', a: 75,  b: 65 },
+            { y: 'OUT', a: 50,  b: 40 },
+            { y: 'NOV', a: 75,  b: 65 },
+            { y: 'DEZ', a: 100, b: 90 }
         ];
-        this.createStackedChart('morris-bar-stacked', $stckedData, 'y', ['a', 'b' ,'c'], ['Series A', 'Series B', 'Series C'], ['#3db9dc','#1bb99a', '#ebeff2']);
+        this.createStackedChart('morris-bar-stacked', $stckedData, 'y', ['a', 'b' ,'c'], ['Carros', 'Auditórios'], ['#3db9dc','#1bb99a']);
 
-        //creating donut chart
-        var $donutData = [
-                {label: "English Language 01", value: 12},
-                {label: "Italian Language 02", value: 30},
-                {label: "French Language 03", value: 20}
-            ];
-        this.createDonutChart('morris-donut-example', $donutData, ['#3db9dc','#1bb99a', '#ebeff2']);
     },
     //init
     $.Dashboard = new Dashboard, $.Dashboard.Constructor = Dashboard

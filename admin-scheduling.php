@@ -139,7 +139,5 @@
         <script src="assets/js/jquery.core.js"></script>
         <script src="assets/js/jquery.app.js"></script>
 
-        <!-- Page specific js -->
-        <script src="assets/pages/jquery.dashboard.js"></script>
     </body>
 </html>
