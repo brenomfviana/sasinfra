@@ -23,7 +23,7 @@
                 <div class="topbar">
                     <nav class="navbar navbar-custom">
                         <div class="topbar-left">
-                            <a href="index.html" class="logo"> <i class="zmdi zmdi-group-work icon-c-logo white"></i> <span class="white">SaSINFRA</span></a>
+                            <a href="index.php" class="logo"> <i class="zmdi zmdi-group-work icon-c-logo white"></i> <span class="white">SaSINFRA</span></a>
                         </div>
                     </nav>
                 </div>
