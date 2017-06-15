@@ -7,6 +7,7 @@
         $schedule = array("type" => $_REQUEST["type"],
             "role" => $_REQUEST["role"],
             "quantity" => $_REQUEST["quantity"]);
+            
         // Open file
         $schedules = json_decode(file_get_contents("database/schedules.json"), true);
         // Add new schedule

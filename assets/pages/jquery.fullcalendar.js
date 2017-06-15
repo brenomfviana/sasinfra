@@ -5,6 +5,31 @@
 * 
 */
 
+function registerSchedule(name, start, end, scheduleType) {
+                
+    var xhttp = new XMLHttpRequest();
+    
+    xhttp.open('POST', "user_admin_schedule_registration.php?name=" + name + 
+                        "&start=" + start + 
+                        "&end=" + end + 
+                        "&scheduleType=" + scheduleType, true);
+    
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            if (this.responseText.match("error:")) {
+                document.getElementById("error").innerHTML = this.responseText.replace("error:","");
+            }
+            /// else {
+                // Redirect
+            //    window.location.href = this.responseText;
+            //}
+        } else if (this.status == 403 || this.status == 404) {
+            alert("Ocorreu um erro.\nO cadastro não pode ser efetuado.");
+        }
+    };
+    xhttp.send();
+}
+
 
 
 !function($) {
@@ -155,6 +180,8 @@
                         className: categoryClass
                     }, true);  
                     $this.$modal.modal('hide');
+                    
+                    registerSchedule(title, start.format() + init, start.format() +ending, categoryClass);
                 }
                 else{
                     alert('Coloque o seu nome');
