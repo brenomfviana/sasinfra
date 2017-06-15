@@ -208,15 +208,20 @@ function registerSchedule(title, start, end, className) {
     /* Initializing */
     CalendarApp.prototype.init = function() {
         
-        var defaultEvents;
-        
-        var defaultEv = $.getJSON("./database/user_admin_schedules.json", function(defaultEv) {
-                console.log(defaultEv["defaultEvents"]); // this will show the info it in firebug console
-                
-                defaultEvents = defaultEv["defaultEvents"];
-                console.log(defaultEvents); 
-        });
-        
+        //get the schedules at a external json file
+        var json = (function () {
+            var json = null;
+            $.ajax({
+                'async': false,
+                'global': false,
+                'url': "./database/user_admin_schedules.json",
+                'dataType': "json",
+                'success': function (data) {
+                    json = data;
+                }
+            });
+            return json;
+        })(); 
         
         this.enableDrag();
         /*  Initialize the calendar  */
@@ -227,21 +232,7 @@ function registerSchedule(title, start, end, className) {
         var form = '';
         var today = new Date($.now());
         
-        // var defaultEvents =  [{
-        //         title: 'Hey!',
-        //         start: new Date($.now() + 158000000),
-        //         className: 'bg-purple'
-        //     }, {
-        //         title: 'See John Deo',
-        //         start: "2017-06-09T09:00:00",
-        //         end: "2017-06-09NaN:40:00",
-        //         className: 'bg-danger'
-        //     }, {
-        //         title: 'Buy a Theme',
-        //         start: new Date($.now() + 338000000),
-        //         className: 'bg-primary'
-        //     }];
-        console.log(defaultEvents);
+        var defaultEvents = json["defaultEvents"];
 
 
         var $this = this;

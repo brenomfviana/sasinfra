@@ -91,6 +91,8 @@
                                 <!-- end col-12 -->
                             </div>
                         <!-- end row -->
+                        <input type="hidden" name="username" id="username" value="<?php echo $_COOKIE["username"];?>"></input>
+                        <input type="hidden" name="usertype" id="usertype" value="<?php echo $_COOKIE["usertype"];?>"></input>
                     </div>
                     <!-- container -->
                 </div>
