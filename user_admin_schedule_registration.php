@@ -1,21 +1,21 @@
 <?php
 
-    if (isset($_REQUEST["name"]) &&
+    if (isset($_REQUEST["title"]) &&
         isset($_REQUEST["start"]) &&
         isset($_REQUEST["end"]) &&
-        isset($_REQUEST["scheduleType"])) {
+        isset($_REQUEST["className"])) {
         // Create a new schedule
-        $schedule = array("name" => $_REQUEST["name"],
+        $defaultEvent = array("title" => $_REQUEST["title"],
             "start" => $_REQUEST["start"],
             "end" => $_REQUEST["end"],
-            "scheduleType" => $_REQUEST["scheduleType"]);
+            "className" => $_REQUEST["className"]);
             
         // Open file
-        $schedules = json_decode(file_get_contents("database/user_admin_schedules.json"), true);
+        $defaultEvents = json_decode(file_get_contents("database/user_admin_schedules.json"), true);
         // Add new schedule
-        array_push($schedules['schedules'], $schedule);
+        array_push($defaultEvents['defaultEvents'], $defaultEvent);
         // Update content
-        if (file_put_contents('database/user_admin_schedules.json', json_encode($schedules)) !== false) {
+        if (file_put_contents('database/user_admin_schedules.json', json_encode($defaultEvents)) !== false) {
             // Update page
           //  echo("/admin-scheduling.php");
         } else {

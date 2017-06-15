@@ -5,24 +5,20 @@
 * 
 */
 
-function registerSchedule(name, start, end, scheduleType) {
+function registerSchedule(title, start, end, className) {
                 
     var xhttp = new XMLHttpRequest();
     
-    xhttp.open('POST', "user_admin_schedule_registration.php?name=" + name + 
+    xhttp.open('POST', "user_admin_schedule_registration.php?title=" + title + 
                         "&start=" + start + 
                         "&end=" + end + 
-                        "&scheduleType=" + scheduleType, true);
+                        "&className=" + className, true);
     
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             if (this.responseText.match("error:")) {
                 document.getElementById("error").innerHTML = this.responseText.replace("error:","");
             }
-            /// else {
-                // Redirect
-            //    window.location.href = this.responseText;
-            //}
         } else if (this.status == 403 || this.status == 404) {
             alert("Ocorreu um erro.\nO cadastro não pode ser efetuado.");
         }
@@ -211,6 +207,17 @@ function registerSchedule(name, start, end, scheduleType) {
     }
     /* Initializing */
     CalendarApp.prototype.init = function() {
+        
+        var defaultEvents;
+        
+        var defaultEv = $.getJSON("./database/user_admin_schedules.json", function(defaultEv) {
+                console.log(defaultEv["defaultEvents"]); // this will show the info it in firebug console
+                
+                defaultEvents = defaultEv["defaultEvents"];
+                console.log(defaultEvents); 
+        });
+        
+        
         this.enableDrag();
         /*  Initialize the calendar  */
         var date = new Date();
@@ -219,6 +226,22 @@ function registerSchedule(name, start, end, scheduleType) {
         var y = date.getFullYear();
         var form = '';
         var today = new Date($.now());
+        
+        // var defaultEvents =  [{
+        //         title: 'Hey!',
+        //         start: new Date($.now() + 158000000),
+        //         className: 'bg-purple'
+        //     }, {
+        //         title: 'See John Deo',
+        //         start: "2017-06-09T09:00:00",
+        //         end: "2017-06-09NaN:40:00",
+        //         className: 'bg-danger'
+        //     }, {
+        //         title: 'Buy a Theme',
+        //         start: new Date($.now() + 338000000),
+        //         className: 'bg-primary'
+        //     }];
+        console.log(defaultEvents);
 
 
         var $this = this;
@@ -236,6 +259,7 @@ function registerSchedule(name, start, end, scheduleType) {
                 center: 'title',
                 right: 'month,agendaWeek,agendaDay'
             },
+            events: defaultEvents,
             editable: true,
             droppable: true, // this allows things to be dropped onto the calendar !!!
             eventLimit: true, // allow "more" link when too many events
