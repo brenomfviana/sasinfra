@@ -16,6 +16,7 @@
                 if ($_REQUEST["password"] == $u->password) {
                     $password = true;
                     setcookie("username", $_REQUEST["username"], time() + (86400 * 30), "/"); // 86400 = 1 day
+                    setcookie("usertype", $u->usertype, time() + (86400 * 30), "/"); // 86400 = 1 day
                     $user = $u;
                 }
                 break;
