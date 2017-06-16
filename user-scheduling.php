@@ -30,7 +30,7 @@
 
                     <!-- LOGO -->
                     <div class="topbar-left">
-                        <a href="index.php" class="logo">
+                        <a href="user-scheduling.php" class="logo">
                         <i class="zmdi zmdi-group-work icon-c-logo white"></i>
                         <span class="white">SaSINFRA</span></a>
                     </div>
@@ -49,7 +49,9 @@
                                         <h5 class="text-overflow"><small>Bem-vindo, <?php echo $_COOKIE["username"];?>!</small> </h5>
                                     </div>
                                     <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item notify-item"> <i class="zmdi zmdi-power"></i> <span>Sair</span> </a>
+                                    <a href="javascript:leave();" class="dropdown-item notify-item"> 
+                                        <i class="zmdi zmdi-power"> </i> <span>Sair</span> 
+                                    </a>
                                 </div>
                             </li>
                         </ul>
@@ -129,7 +131,16 @@
             </div>
             <!-- END wrapper -->
         </div>
-
+    
+        <script type="text/javascript">
+            function leave(){
+               // delete the cookie by changing your values.
+               document.cookie = "username=; usertype=; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+               document.cookie = "path=index.php";
+               // redirecting the page.   
+               window.location.href = "index.php";
+            }
+        </script>
         
         <script>
             var resizefunc = [];

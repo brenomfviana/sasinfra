@@ -8,7 +8,6 @@
             <span class="white">SaSINFRA</span></a>
     </div>
 
-
     <nav class="navbar navbar-custom">
         <ul class="nav navbar-nav">
             <li class="nav-item">
@@ -31,7 +30,8 @@
                     </div>
 
                     <!-- item-->
-                    <a href="javascript:leave();" class="dropdown-item notify-item">
+                    <!--<a href="redirect.php" class="dropdown-item notify-item"> -->
+                    <a href="javascript:leave();" class="dropdown-item notify-item"> 
                         <i class="zmdi zmdi-power"></i> <span>Sair</span>
                     </a>
 
@@ -41,12 +41,16 @@
         </ul>
 
     </nav>
-
+    
     <script type="text/javascript">
         function leave(){
-            
+           // delete the cookie by changing your values.
+           document.cookie = "username=; usertype=; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+           document.cookie = "path=index.php";
+           // redirect the page.   
+           window.location.href = "index.php";
         }
-        
     </script>
+    
 </div>
 <!-- Top Bar End -->
