@@ -30,7 +30,6 @@
                     </div>
 
                     <!-- item-->
-                    <!--<a href="redirect.php" class="dropdown-item notify-item"> -->
                     <a href="javascript:leave();" class="dropdown-item notify-item"> 
                         <i class="zmdi zmdi-power"></i> <span>Sair</span>
                     </a>
@@ -47,7 +46,7 @@
            // delete the cookie by changing your values.
            document.cookie = "username=; usertype=; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
            document.cookie = "path=index.php";
-           // redirect the page.   
+           // redirecting the page.   
            window.location.href = "index.php";
         }
     </script>
