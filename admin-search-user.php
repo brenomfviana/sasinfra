@@ -144,36 +144,91 @@
                 
                 var text_content = document.getElementById("f_searchuser").value;
                 
+                // get the .json values.
+                var object = json;
+                
                 // search for a specific user.
                 if (text_content.length > 0) {                   
-                
+                    //document.write(text_content);
                     // Check the kind of search, i.e., if it's by name, username...
-                    var searchOption;
+                    var searchOption = "";
                     if(document.getElementById("f_by_name").checked) {
                         searchOption = "name";
                     } else if (document.getElementById("f_by_username").checked) {
                         searchOption = "username";
-                    } else {
+                    } 
+                    else {
                         searchOption = "cpf";
                     }
                     
-                    // First line of the table.
-                    table_content += "<tr> ";
-                    while(i < quantity_collumns) {
-                        table_content += "<td>"+ i +"</td> ";
-                        i++;
-                    }
-                    table_content += " </tr>";
-                    // Add the head of the table in the page.
-                    document.getElementById("table-users").innerHTML = table_content;
-                    //teste 
-                    /* alert(searchOption); */
+                    //alert(searchOption);
+                
+                    i = 0;
                     
-                    // Search for the user. 
+                    //alert(object.users[0].name);
+                    
+                    if(searchOption == "name") {
+                        table_content += "<tr> ";
+                        while (i < object.users.length) {
+                            if(object.users[i].name == text_content) {
+                                
+                                table_content += "<td>"+ object.users[i].name +"</td> ";
+                                table_content += "<td>"+ object.users[i].username +"</td> ";
+                                table_content += "<td>"+ object.users[i].cpf +"</td> ";
+                                table_content += "<td> <a href=\"#\">Remover</a> </td>";
+                                table_content += "<td> <a href=\"#\">Atualizar dados</a> </td>";
+                                        
+                                break;
+                            } 
+                            
+                            i++;
+                        }
+                
+                        table_content += " </tr>";
+                        
+                    } else if(searchOption == "username") {
+                        table_content += "<tr> ";
+                        while (i < object.users.length) {
+                            if(object.users[i].username == text_content) {
+                                
+                                table_content += "<td>"+ object.users[i].name +"</td> ";
+                                table_content += "<td>"+ object.users[i].username +"</td> ";
+                                table_content += "<td>"+ object.users[i].cpf +"</td> ";
+                                table_content += "<td> <a href=\"#\">Remover</a> </td>";
+                                table_content += "<td> <a href=\"#\">Atualizar dados</a> </td>";
+                                        
+                                break;
+                            } 
+                            
+                            i++;
+                        }
+                
+                        table_content += " </tr>";
+                    } else {
+                        table_content += "<tr> ";
+                        while (i < object.users.length) {
+                            if(object.users[i].cpf == text_content) {
+                                
+                                table_content += "<td>"+ object.users[i].name +"</td> ";
+                                table_content += "<td>"+ object.users[i].username +"</td> ";
+                                table_content += "<td>"+ object.users[i].cpf +"</td> ";
+                                table_content += "<td> <a href=\"#\">Remover</a> </td>";
+                                table_content += "<td> <a href=\"#\">Atualizar dados</a> </td>";
+                                        
+                                break;
+                            } 
+                            
+                            i++;
+                        }
+                
+                        table_content += " </tr>";
+                        
+                    }
+                    
+                    document.getElementById("table-users").innerHTML = table_content;
                     
                 } else {
                     // show all users.
-                    var object = json;
                     //console.log(object.users[0].name);
                     //alert(object.users.length);
                     
