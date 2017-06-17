@@ -115,7 +115,7 @@
                     var i = 0;
                     
                     //alert(object.schedules[0].type);
-                    alert(object.schedules[0].quantity);
+                    //alert(object.schedules[0].quantity);
                     
                     while(i < object.schedules.length) {
                         table_content += "<tr> ";

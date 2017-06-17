@@ -59,7 +59,6 @@
                                     <i class=" icon-speech pull-xs-right text-muted"></i>
                                     <h6 class="text-muted text-uppercase m-b-20">Agendamentos de Auditórios</h6>
                                     <h2 class="m-b-20" data-plugin="counterup">30</h2>
-                                    <span class="label label-success"> +11% </span> <span class="text-muted">comparado ao mês anterior</span>
                                 </div>
                             </div>
 
@@ -68,7 +67,6 @@
                                     <i class="zmdi zmdi-car pull-xs-right text-muted"></i>
                                     <h6 class="text-muted text-uppercase m-b-20">Agendamentos de Carros</h6>
                                     <h2 class="m-b-20" data-plugin="counterup">50</h2>
-                                    <span class="label label-danger"> -29% </span> <span class="text-muted">comparado ao mês anterior</span>
                                 </div>
                             </div>
 
@@ -77,7 +75,6 @@
                                     <i class="icon-people pull-xs-right text-muted"></i>
                                     <h6 class="text-muted text-uppercase m-b-20">Clientes</h6>
                                     <h2 class="m-b-20" data-plugin="counterup">10</h2>
-                                    <span class="label label-pink"> 0% </span> <span class="text-muted">comparado ao mês anterior</span>
                                 </div>
                             </div>
                         </div>
