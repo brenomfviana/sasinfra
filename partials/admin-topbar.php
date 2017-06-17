@@ -46,7 +46,7 @@
            // delete the cookie by changing your values.
            document.cookie = "username=; usertype=; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
            document.cookie = "path=index.php";
-           // redirecting the page.   
+           // redirecting the page.  
            window.location.href = "index.php";
         }
     </script>

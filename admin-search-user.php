@@ -112,8 +112,26 @@
             </footer>
         </div>
         <!-- END wrapper -->
-
+        
+        <script src="assets/js/jquery.min.js"></script>
+       
         <script type="text/javascript">
+            
+            //get the schedules at a external json file
+            var json = (function () {
+                var json = null;
+                $.ajax({
+                    'async': false,
+                    'global': false,
+                    'url': "./database/users.json",
+                    'dataType': "json",
+                    'success': function (data) {
+                        json = data;
+                    }
+                });
+                return json;
+            })();
+            
             
             function searchUser() {
                 //document.write("TESTEEE");
@@ -129,53 +147,56 @@
                 // search for a specific user.
                 if (text_content.length > 0) {                   
                 
+                    // Check the kind of search, i.e., if it's by name, username...
+                    var searchOption;
+                    if(document.getElementById("f_by_name").checked) {
+                        searchOption = "name";
+                    } else if (document.getElementById("f_by_username").checked) {
+                        searchOption = "username";
+                    } else {
+                        searchOption = "cpf";
+                    }
+                    
+                    // First line of the table.
                     table_content += "<tr> ";
                     while(i < quantity_collumns) {
                         table_content += "<td>"+ i +"</td> ";
                         i++;
                     }
-                    
                     table_content += " </tr>";
-                    
+                    // Add the head of the table in the page.
                     document.getElementById("table-users").innerHTML = table_content;
+                    //teste 
+                    /* alert(searchOption); */
+                    
+                    // Search for the user. 
+                    
                 } else {
                     // show all users.
+                    var object = json;
+                    //console.log(object.users[0].name);
+                    //alert(object.users.length);
                     
                     var table_content = "";
                     var quantity_collumns = 5;
-                    var i = 0;
-                
+                    var i =0;
+                    
                     // head of the table.
                     table_content = "<tr> <td> Nome </td>  <td> Usuário </td> <td> CPF</td><td> Remover </td> <td> Atualizar dados </td> </tr>";
                     document.getElementById("table-users").innerHTML = table_content;
                     
-                    // try to take the users values.
-                    var object ;
-                    var caminho = "database/users.json";
-                    
-                    $.getJSON(caminho, function(data) {
-                        object = JSON.stringify(data);
-                        //alert(data[0]);
-                    });
-                    
-                    document.write(text);
-                    document.write("hahaha");
-                    
-                    //var object = JSON.parse(text);
-                    
-                    //var users = json_decode(file_get_contents("database/users.json"));
-                    var j = 0;
-                    i = 0;
                     // Quantity of users in the .json file.
-                    while (j < object.length) {
+                    while (i < object.users.length) {
                         table_content += "<tr> ";
-                        while(i < quantity_collumns) {
-                            table_content += "<td>"+ i +"</td> ";
-                            i++;
-                        }
+                        
+                        table_content += "<td>"+ object.users[i].name +"</td> ";
+                        table_content += "<td>"+ object.users[i].username +"</td> ";
+                        table_content += "<td>"+ object.users[i].cpf +"</td> ";
+                        table_content += "<td> <a href=\"#\">Remover</a> </td>";
+                        table_content += "<td> <a href=\"#\">Atualizar dados</a> </td>";
                         
                         table_content += " </tr>";
-                        j++;
+                        i++;
                     }
                     
                     document.getElementById("table-users").innerHTML = table_content;
