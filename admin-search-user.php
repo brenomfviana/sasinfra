@@ -117,7 +117,7 @@
        
         <script type="text/javascript">
             
-            //get the schedules at a external json file
+            //get the users at a external json file
             var json = (function () {
                 var json = null;
                 $.ajax({
