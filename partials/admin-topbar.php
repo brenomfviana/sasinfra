@@ -30,7 +30,8 @@
                     </div>
 
                     <!-- item-->
-                    <a href="javascript:leave();" class="dropdown-item notify-item"> 
+                    <!-- <a href="javascript:leave();" class="dropdown-item notify-item"> -->
+                    <a href="redirect.php" class="dropdown-item notify-item"> 
                         <i class="zmdi zmdi-power"></i> <span>Sair</span>
                     </a>
 
