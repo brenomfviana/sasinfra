@@ -134,6 +134,7 @@
         <!-- BEGIN PAGE SCRIPTS -->
         <script src="assets/plugins/moment/moment.js"></script>
         <script src='assets/plugins/fullcalendar/dist/fullcalendar.min.js'></script>
+        <script src='assets/plugins/fullcalendar/dist/lang/pt-br.js'></script>
         <script src="assets/pages/jquery.fullcalendar.js"></script>
 
         <!-- App js -->
