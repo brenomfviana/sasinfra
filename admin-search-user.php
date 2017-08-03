@@ -64,20 +64,23 @@
                                     <input type="radio" id="f_by_username" name="f_parameter" value="username" class="radio"> <label>Por username</label>
                                     <input type="radio" id="f_by_cpf" name="f_parameter" value="cpf" class="radio"> <label>Por CPF</label>
                                     <input type="text" class="form-control input-text" id="f_searchuser" placeholder="" maxlength="100">
-                                    <input type="submit" class="btn sinfra-btn send m-t-20" value="Buscar" id="search-user-btn">
+                                    <input type="button" class="btn sinfra-btn send m-t-20" value="Buscar" id="search-user-btn" onclick="searchUser()" >
                                 </form>
                             </div>
 
                             <div class="card-box">
                                 <h4 class="header-title m-t-0">Resultados</h4>
 
-                                <table class="table table-bordered table-striped m-b-0">
+                                <table class="table table-bordered table-striped m-b-0" id="table-users">
                                     <tbody>
-                                        <!--<tr>
-                                            <th class="text-nowrap" scope="row">User name</th>
+                                        <tr>
+                                            <td class="text-nowrap" scope="row">Nome</td>
+                                            <td class="text-nowrap" scope="row">Usuário</td>
+                                            <td class="text-nowrap" scope="row">CPF</td>
                                             <td> <a href="#">Remover</a> </td>
                                             <td> <a href="#">Atualizar dados</a> </td>
                                         </tr>
+                                        <!--
                                         <tr>
                                             <th class="text-nowrap" scope="row">User name</th>
                                             <td colspan="1"> <a href="#">Remover</a> </td>
@@ -87,7 +90,7 @@
                                             <th class="text-nowrap" scope="row">User name</th>
                                             <td colspan="1"> <a href="#">Remover</a> </td>
                                             <td colspan="1"> <a href="#">Atualizar dados</a> </td>
-                                        </tr>-->
+                                        </tr> -->
                                     </tbody>
                                 </table>
                             </div>
@@ -109,8 +112,155 @@
             </footer>
         </div>
         <!-- END wrapper -->
-
-
+        
+        <script src="assets/js/jquery.min.js"></script>
+       
+        <script type="text/javascript">
+            
+            //get the users at a external json file
+            var json = (function () {
+                var json = null;
+                $.ajax({
+                    'async': false,
+                    'global': false,
+                    'url': "./database/users.json",
+                    'dataType': "json",
+                    'success': function (data) {
+                        json = data;
+                    }
+                });
+                return json;
+            })();
+            
+            
+            function searchUser() {
+                //document.write("TESTEEE");
+                var table_content = "";
+                var quantity_collumns = 5;
+                var i = 0;
+                
+                // head of the table.
+                table_content = "<tr> <td> Nome </td>  <td> Usuário </td> <td> CPF</td><td> Remover </td> <td> Atualizar dados </td> </tr>";
+                
+                var text_content = document.getElementById("f_searchuser").value;
+                
+                // get the .json values.
+                var object = json;
+                
+                // search for a specific user.
+                if (text_content.length > 0) {                   
+                    //document.write(text_content);
+                    // Check the kind of search, i.e., if it's by name, username...
+                    var searchOption = "";
+                    if(document.getElementById("f_by_name").checked) {
+                        searchOption = "name";
+                    } else if (document.getElementById("f_by_username").checked) {
+                        searchOption = "username";
+                    } 
+                    else {
+                        searchOption = "cpf";
+                    }
+                    
+                    //alert(searchOption);
+                
+                    i = 0;
+                    
+                    //alert(object.users[0].name);
+                    
+                    if(searchOption == "name") {
+                        table_content += "<tr> ";
+                        while (i < object.users.length) {
+                            if(object.users[i].name == text_content) {
+                                
+                                table_content += "<td>"+ object.users[i].name +"</td> ";
+                                table_content += "<td>"+ object.users[i].username +"</td> ";
+                                table_content += "<td>"+ object.users[i].cpf +"</td> ";
+                                table_content += "<td> <a href=\"#\">Remover</a> </td>";
+                                table_content += "<td> <a href=\"#\">Atualizar dados</a> </td>";
+                                        
+                                break;
+                            } 
+                            
+                            i++;
+                        }
+                
+                        table_content += " </tr>";
+                        
+                    } else if(searchOption == "username") {
+                        table_content += "<tr> ";
+                        while (i < object.users.length) {
+                            if(object.users[i].username == text_content) {
+                                
+                                table_content += "<td>"+ object.users[i].name +"</td> ";
+                                table_content += "<td>"+ object.users[i].username +"</td> ";
+                                table_content += "<td>"+ object.users[i].cpf +"</td> ";
+                                table_content += "<td> <a href=\"#\">Remover</a> </td>";
+                                table_content += "<td> <a href=\"#\">Atualizar dados</a> </td>";
+                                        
+                                break;
+                            } 
+                            
+                            i++;
+                        }
+                
+                        table_content += " </tr>";
+                    } else {
+                        table_content += "<tr> ";
+                        while (i < object.users.length) {
+                            if(object.users[i].cpf == text_content) {
+                                
+                                table_content += "<td>"+ object.users[i].name +"</td> ";
+                                table_content += "<td>"+ object.users[i].username +"</td> ";
+                                table_content += "<td>"+ object.users[i].cpf +"</td> ";
+                                table_content += "<td> <a href=\"#\">Remover</a> </td>";
+                                table_content += "<td> <a href=\"#\">Atualizar dados</a> </td>";
+                                        
+                                break;
+                            } 
+                            
+                            i++;
+                        }
+                
+                        table_content += " </tr>";
+                        
+                    }
+                    
+                    document.getElementById("table-users").innerHTML = table_content;
+                    
+                } else {
+                    // show all users.
+                    //console.log(object.users[0].name);
+                    //alert(object.users.length);
+                    
+                    var table_content = "";
+                    var quantity_collumns = 5;
+                    var i =0;
+                    
+                    // head of the table.
+                    table_content = "<tr> <td> Nome </td>  <td> Usuário </td> <td> CPF</td><td> Remover </td> <td> Atualizar dados </td> </tr>";
+                    document.getElementById("table-users").innerHTML = table_content;
+                    
+                    // Quantity of users in the .json file.
+                    while (i < object.users.length) {
+                        table_content += "<tr> ";
+                        
+                        table_content += "<td>"+ object.users[i].name +"</td> ";
+                        table_content += "<td>"+ object.users[i].username +"</td> ";
+                        table_content += "<td>"+ object.users[i].cpf +"</td> ";
+                        table_content += "<td> <a href=\"#\">Remover</a> </td>";
+                        table_content += "<td> <a href=\"#\">Atualizar dados</a> </td>";
+                        
+                        table_content += " </tr>";
+                        i++;
+                    }
+                    
+                    document.getElementById("table-users").innerHTML = table_content;
+                    
+                }
+            }
+        </script>
+    
+        
         <script>
             var resizefunc = [];
         </script>

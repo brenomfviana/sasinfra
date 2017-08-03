@@ -30,7 +30,7 @@
 
                     <!-- LOGO -->
                     <div class="topbar-left">
-                        <a href="index.php" class="logo">
+                        <a href="user-scheduling.php" class="logo">
                         <i class="zmdi zmdi-group-work icon-c-logo white"></i>
                         <span class="white">SaSINFRA</span></a>
                     </div>
@@ -38,39 +38,7 @@
 
                     <nav class="navbar navbar-custom">
                         <ul class="nav navbar-nav pull-right">
-                            <li class="nav-item dropdown notification-list">
-                                <a class="nav-link dropdown-toggle arrow-none waves-light waves-effect" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false"> <i class="zmdi zmdi-notifications-none noti-icon"></i> <span class="noti-icon-badge"></span> </a>
-                                <div class="dropdown-menu dropdown-menu-right dropdown-arrow dropdown-lg" aria-labelledby="Preview">
-                                    <!-- item-->
-                                    <div class="dropdown-item noti-title">
-                                        <h5><small><span class="label label-danger pull-xs-right">7</span>Notificações</small></h5>
-                                    </div>
-                                    <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                        <div class="notify-icon bg-success">
-                                            <i class="icon-bubble"></i>
-                                        </div>
-                                        <p class="notify-details">Robert S. Taylor commented on Admin<small class="text-muted">1min ago</small></p>
-                                    </a>
-                                    <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                        <div class="notify-icon bg-info">
-                                            <i class="icon-user"></i>
-                                        </div>
-                                        <p class="notify-details">New user registered.<small class="text-muted">1min ago</small></p>
-                                    </a>
-                                    <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                        <div class="notify-icon bg-danger">
-                                            <i class="icon-like"></i>
-                                        </div>
-                                        <p class="notify-details">Carlos Crouch liked <b>Admin</b><small class="text-muted">1min ago</small></p>
-                                    </a>
-                                    <!-- All-->
-                                    <a href="javascript:void(0);" class="dropdown-item notify-item notify-all">
-                                        Ver Tudo</a>
-                                </div>
-                            </li>
+                            
                             <li class="nav-item dropdown notification-list">
                                 <a class="nav-link dropdown-toggle arrow-none waves-effect waves-light nav-user" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                                     <img src="assets/images/users/avatar-1.jpg" alt="user" class="img-circle">
@@ -81,7 +49,9 @@
                                         <h5 class="text-overflow"><small>Bem-vindo, <?php echo $_COOKIE["username"];?>!</small> </h5>
                                     </div>
                                     <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item notify-item"> <i class="zmdi zmdi-power"></i> <span>Sair</span> </a>
+                                    <a href="javascript:leave();" class="dropdown-item notify-item"> 
+                                        <i class="zmdi zmdi-power"> </i> <span>Sair</span> 
+                                    </a>
                                 </div>
                             </li>
                         </ul>
@@ -143,6 +113,7 @@
                             </div>
                             <!-- end row -->
                             <input type="hidden" name="username" id="username" value="<?php echo $_COOKIE["username"];?>"></input>
+                            <input type="hidden" name="usertype" id="usertype" value="<?php echo $_COOKIE["usertype"];?>"></input>
                         </div>
                         <!-- container -->
                     </div>
@@ -160,7 +131,16 @@
             </div>
             <!-- END wrapper -->
         </div>
-
+    
+        <script type="text/javascript">
+            function leave(){
+               // delete the cookie by changing your values.
+               document.cookie = "username=; usertype=; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+               document.cookie = "path=index.php";
+               // redirecting the page.   
+               window.location.href = "index.php";
+            }
+        </script>
         
         <script>
             var resizefunc = [];

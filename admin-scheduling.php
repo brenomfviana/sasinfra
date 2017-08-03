@@ -18,7 +18,7 @@
         <!-- Modernizr js -->
         <script src="assets/js/modernizr.min.js"></script>
     </head>
-    <body class="fixed-left">
+    <body class="fixed-left" onload="searchKindSchedules()">
         <!-- Begin page -->
         <div id="wrapper">
 
@@ -64,7 +64,7 @@
                                     <div class="row">
                                         <h4 class="header-title m-t-0">Listagem dos tipos de agendamento</h4>
 
-                                        <table class="table table-striped">
+                                        <table class="table table-striped" id="table_scheduling">
                                             <thead>
                                             <tr>
                                                 <th>Tipo</th>
@@ -73,16 +73,7 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            <tr>
-                                                <td>Auditório</td>
-                                                <td>Espaço de reuniões e seminários</td>
-                                                <td>1</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Carros</td>
-                                                <td>Transporte</td>
-                                                <td>5</td>
-                                            </tr>
+                                            
                                             </tbody>
                                         </table>
                                     </div>
@@ -98,7 +89,48 @@
                 <!-- content -->
             </div>
             <!-- End content-page -->
-
+            
+            <script src="assets/js/jquery.min.js"></script>
+            
+            <script type="text/javascript" >
+                
+                //get the schedules at a external json file
+                var json = (function () {
+                    var json = null;
+                    $.ajax({
+                        'async': false,
+                        'global': false,
+                        'url': "./database/schedules.json",
+                        'dataType': "json",
+                        'success': function (data) {
+                            json = data;
+                        }
+                    });
+                    return json;
+                })();
+                
+                function searchKindSchedules() {
+                    var table_content = "";
+                    var object = json;
+                    var i = 0;
+                    
+                    //alert(object.schedules[0].type);
+                    //alert(object.schedules[0].quantity);
+                    
+                    while(i < object.schedules.length) {
+                        table_content += "<tr> ";
+                        table_content += "<td>"+ object.schedules[i].type +"</td> ";
+                        table_content += "<td>"+ object.schedules[i].role +"</td> ";
+                        table_content += "<td>"+ object.schedules[i].quantity +"</td> ";
+                        table_content += "</tr> ";
+                        i++;
+                    }
+                    
+                    document.getElementById("table_scheduling").innerHTML += table_content;
+                }
+                
+            </script>
+            
             <!-- ============================================================== -->
             <!-- End Right content here -->
             <!-- ============================================================== -->

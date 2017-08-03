@@ -91,6 +91,8 @@
                                 <!-- end col-12 -->
                             </div>
                         <!-- end row -->
+                        <input type="hidden" name="username" id="username" value="<?php echo $_COOKIE["username"];?>"></input>
+                        <input type="hidden" name="usertype" id="usertype" value="<?php echo $_COOKIE["usertype"];?>"></input>
                     </div>
                     <!-- container -->
                 </div>
@@ -132,6 +134,7 @@
         <!-- BEGIN PAGE SCRIPTS -->
         <script src="assets/plugins/moment/moment.js"></script>
         <script src='assets/plugins/fullcalendar/dist/fullcalendar.min.js'></script>
+        <script src='assets/plugins/fullcalendar/dist/lang/pt-br.js'></script>
         <script src="assets/pages/jquery.fullcalendar.js"></script>
 
         <!-- App js -->

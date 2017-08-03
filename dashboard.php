@@ -18,7 +18,7 @@
         <!-- Modernizr js -->
         <script src="assets/js/modernizr.min.js"></script>
     </head>
-    <body class="fixed-left">
+    <body class="fixed-left" onload="searchQuatitySchedules()">
         <!-- Begin page -->
         <div id="wrapper">
 
@@ -58,8 +58,8 @@
                                 <div class="card-box tilebox-one">
                                     <i class=" icon-speech pull-xs-right text-muted"></i>
                                     <h6 class="text-muted text-uppercase m-b-20">Agendamentos de Auditórios</h6>
-                                    <h2 class="m-b-20" data-plugin="counterup">30</h2>
-                                    <span class="label label-success"> +11% </span> <span class="text-muted">comparado ao mês anterior</span>
+                                    <!-- <h2 class="m-b-20" data-plugin="counterup" id="schedules1">  </h2> -->
+                                    <h2 id="schedules1">  </h2>
                                 </div>
                             </div>
 
@@ -67,8 +67,8 @@
                                 <div class="card-box tilebox-one">
                                     <i class="zmdi zmdi-car pull-xs-right text-muted"></i>
                                     <h6 class="text-muted text-uppercase m-b-20">Agendamentos de Carros</h6>
-                                    <h2 class="m-b-20" data-plugin="counterup">50</h2>
-                                    <span class="label label-danger"> -29% </span> <span class="text-muted">comparado ao mês anterior</span>
+                                    <!-- <h2 class="m-b-20" data-plugin="counterup" id="schedules2">  </h2> -->
+                                    <h2 id="schedules2">  </h2>
                                 </div>
                             </div>
 
@@ -76,8 +76,8 @@
                                 <div class="card-box tilebox-one">
                                     <i class="icon-people pull-xs-right text-muted"></i>
                                     <h6 class="text-muted text-uppercase m-b-20">Clientes</h6>
-                                    <h2 class="m-b-20" data-plugin="counterup">10</h2>
-                                    <span class="label label-pink"> 0% </span> <span class="text-muted">comparado ao mês anterior</span>
+                                    <!-- <h2 class="m-b-20" data-plugin="counterup" id="schedules3">  </h2> -->
+                                    <h2 id="schedules3">  </h2>
                                 </div>
                             </div>
                         </div>
@@ -123,7 +123,77 @@
             </footer>
         </div>
         <!-- END wrapper -->
-
+        
+        <script src="assets/js/jquery.min.js"></script>
+            
+            <script type="text/javascript" >
+                
+                //get the schedules at a external json file
+                var json = (function () {
+                    var json = null;
+                    $.ajax({
+                        'async': false,
+                        'global': false,
+                        'url': "./database/user_admin_schedules.json",
+                        'dataType': "json",
+                        'success': function (data) {
+                            json = data;
+                        }
+                    });
+                    return json;
+                })();
+                
+                //get the schedules at a external json file
+                var json2 = (function () {
+                    var json2 = null;
+                    $.ajax({
+                        'async': false,
+                        'global': false,
+                        'url': "./database/users.json",
+                        'dataType': "json",
+                        'success': function (data) {
+                            json2 = data;
+                        }
+                    });
+                    return json2;
+                })();
+                
+                function searchQuatitySchedules() {
+                    var table_content = "";
+                    var object = json;
+                    var i = 0;
+                    var quantity1 = 0, quantity2 = 0, quantity3 = 0;
+                    
+                    //alert(object.defaultEvents[0].className);
+                    //alert(object.schedules[0].quantity);
+                    
+                    // Quantity of schedules.
+                    while(i < object.defaultEvents.length) {
+                        if(object.defaultEvents[i].className == "bg-danger") {
+                            quantity1++;
+                        } else if(object.defaultEvents[i].className == "bg-primary") {
+                            quantity2++;
+                        }
+                           
+                        i++;
+                    }
+                    
+                    
+                    document.getElementById("schedules1").textContent  = quantity1;
+                    document.getElementById("schedules2").textContent  = quantity2;
+                    
+                    // Quantity of users.
+                    var object2 = json2;
+                    //alert(JSON.stringify(object2));
+                    //alert(object2.users.length);
+                    quantity3 = object2.users.length;
+                    
+                    document.getElementById("schedules3").textContent  = quantity3;
+                    
+                }
+                
+            </script>
+        
 
         <script>
             var resizefunc = [];

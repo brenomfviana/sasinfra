@@ -5,6 +5,27 @@
 * 
 */
 
+function registerSchedule(title, start, end, className) {
+                
+    var xhttp = new XMLHttpRequest();
+    
+    xhttp.open('POST', "user_admin_schedule_registration.php?title=" + title + 
+                        "&start=" + start + 
+                        "&end=" + end + 
+                        "&className=" + className, true);
+    
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            if (this.responseText.match("error:")) {
+                document.getElementById("error").innerHTML = this.responseText.replace("error:","");
+            }
+        } else if (this.status == 403 || this.status == 404) {
+            alert("Ocorreu um erro.\nO cadastro não pode ser efetuado.");
+        }
+    };
+    xhttp.send();
+}
+
 
 
 !function($) {
@@ -77,15 +98,19 @@
         var $this = this;
         
         var name = document.getElementById("username");
+        var usertype = document.getElementById("usertype");
         var s = name.value;
+        var type = usertype.value;
         
-            $this.$modal.modal({
-                backdrop: 'static'
-            });
-            var form = $("<form></form>");
+        $this.$modal.modal({
+            backdrop: 'static'
+        });
+        
+        var form = $("<form></form>");
+        if(type == "client"){
             form.append("<div class='row'></div>");
             form.find(".row")
-            .append("<div class='col-md-6'><div class='form-group'><label class='control-label'>Categoria</label><select class='form-control' name='category'></select></div></div>")
+                .append("<div class='col-md-6'><div class='form-group'><label class='control-label'>Categoria</label><select class='form-control' name='category'></select></div></div>")
                 .find("select[name='category']")
                 .append("<option value='bg-danger'>Auditório</option>")
                 .append("<option value='bg-primary'>Carro</option>");
@@ -97,72 +122,101 @@
                 .append("<option value='T10:50:00'>M56</option>")
                 .append("<option value='T13:00:00'>T12</option>")
                 .append("<option value='T14:55:00'>T34</option>")
-                .append("<option value='T16:50:00'>T56</option>")              ;
-            $this.$modal.find('.delete-event').hide().end().find('.save-event').show().end().find('.modal-body').empty().prepend(form).end().find('.save-event').unbind('click').click(function () {
-                form.submit();
-            });
-            $this.$modal.find('form').on('submit', function () {
-                var title = s;
-                var init = form.find("select[name='time'] option:checked").val();
-                
-                
-                var eventTime = "01:40:00";
-                var hour=0;
-                var minute=0;
-                var second=0;
-                var h = "";
-                var m = "";
-                var splitTime1= eventTime.split(':');
-                var splitTime2= init.split(':');
-                hour = parseInt(splitTime1[0])+parseInt(splitTime2[0]);
-                minute = parseInt(splitTime1[1])+parseInt(splitTime2[1]);
-                second = parseInt(splitTime1[2])+parseInt(splitTime2[2]);
-                minute = minute + second/60;
-                second = second%60;
-                hour = hour + minute/60;
-                minute = minute%60;
-                
-                if(hour < 10){
-                    if (minute < 10){
-                        h = "0" + hour;
-                        m = "0" + minute;
-                    }
-                    else{
-                        h = "0" + hour;
-                        m = "" + minute;
-                    }
-                }
-                else {
-                    if (minute < 10){
-                        h = "" + hour;
-                        m = "0" + minute;
-                    }
-                    else {
-                        h = "" + hour;
-                        m = "" + minute;
-                    }
-                }
-                var ending = h+':'+m+':00';
-                
-                
-                var categoryClass = form.find("select[name='category'] option:checked").val();
-                if (title !== null && title.length != 0) {
-                    $this.$calendarObj.fullCalendar('renderEvent', {
-                        title: title,
-                        start: start.format() + init,
-                        end: start.format() +ending,
-                        allDay: false,
-                        className: categoryClass
-                    }, true);  
-                    $this.$modal.modal('hide');
+                .append("<option value='T16:50:00'>T56</option>");
+        }
+        else {
+            form.append("<div class='row'></div>");
+            form.find(".row")
+                .append("<div class='col-md-4'><div class='form-group'><label class='control-label'>nome do Cliente</label><input class='form-control' placeholder='' type='text' name='title'/></div></div>")
+                .append("<div class='col-md-4'><div class='form-group'><label class='control-label'>Categoria</label><select class='form-control' name='category'></select></div></div>")
+                .find("select[name='category']")
+                .append("<option value='bg-danger'>Auditório</option>")
+                .append("<option value='bg-primary'>Carro</option>");
+            form.find(".row")
+                .append("<div class='col-md-4'><div class='form-group'><label class='control-label'>Horário</label><select class='form-control' name='time'></select></div></div>")
+                .find("select[name='time']")
+                .append("<option value='T07:00:00'>M12</option>")
+                .append("<option value='T08:55:00'>M34</option>")
+                .append("<option value='T10:50:00'>M56</option>")
+                .append("<option value='T13:00:00'>T12</option>")
+                .append("<option value='T14:55:00'>T34</option>")
+                .append("<option value='T16:50:00'>T56</option>");
+        }
+            
+        
+        $this.$modal.find('.delete-event').hide().end().find('.save-event').show().end().find('.modal-body').empty().prepend(form).end().find('.save-event').unbind('click').click(function () {
+            form.submit();
+        });
+        $this.$modal.find('form').on('submit', function () {
+            var title;
+            if(type == "client"){
+                title = s;
+            }
+            else{
+                title = form.find("input[name='title']").val();
+            }
+            var init = form.find("select[name='time'] option:checked").val();
+            
+            
+            var eventTime = "01:40:00";
+            var hour=0;
+            var minute=0;
+            var second=0;
+            var h = "";
+            var m = "";
+            var splitTime1= eventTime.split(':');
+            var splitTime2= init.split(':');
+            hour = parseInt(splitTime1[0])+parseInt(splitTime2[0]);
+            minute = parseInt(splitTime1[1])+parseInt(splitTime2[1]);
+            second = parseInt(splitTime1[2])+parseInt(splitTime2[2]);
+            minute = minute + second/60;
+            second = second%60;
+            hour = hour + minute/60;
+            minute = minute%60;
+            
+            if(hour < 10){
+                if (minute < 10){
+                    h = "0" + hour;
+                    m = "0" + minute;
                 }
                 else{
-                    alert('Coloque o seu nome');
+                    h = "0" + hour;
+                    m = "" + minute;
                 }
-                return false;
+            }
+            else {
+                if (minute < 10){
+                    h = "" + hour;
+                    m = "0" + minute;
+                }
+                else {
+                    h = "" + hour;
+                    m = "" + minute;
+                }
+            }
+            var ending = h+':'+m+':00';
+            
+            
+            var categoryClass = form.find("select[name='category'] option:checked").val();
+            if (title !== null && title.length != 0) {
+                $this.$calendarObj.fullCalendar('renderEvent', {
+                    title: title,
+                    start: start.format() + init,
+                    end: start.format() +ending,
+                    allDay: false,
+                    className: categoryClass
+                }, true);  
+                $this.$modal.modal('hide');
                 
-            });
-            $this.$calendarObj.fullCalendar('unselect');
+                registerSchedule(title, start.format() + init, start.format() +ending, categoryClass);
+            }
+            else{
+                alert('Coloque o seu nome');
+            }
+            return false;
+            
+        });
+        $this.$calendarObj.fullCalendar('unselect');
     },
     CalendarApp.prototype.enableDrag = function() {
         //init events
@@ -184,6 +238,22 @@
     }
     /* Initializing */
     CalendarApp.prototype.init = function() {
+        
+        //get the schedules at a external json file
+        var json = (function () {
+            var json = null;
+            $.ajax({
+                'async': false,
+                'global': false,
+                'url': "./database/user_admin_schedules.json",
+                'dataType': "json",
+                'success': function (data) {
+                    json = data;
+                }
+            });
+            return json;
+        })(); 
+        
         this.enableDrag();
         /*  Initialize the calendar  */
         var date = new Date();
@@ -192,6 +262,8 @@
         var y = date.getFullYear();
         var form = '';
         var today = new Date($.now());
+        
+        var defaultEvents = json["defaultEvents"];
 
 
         var $this = this;
@@ -209,6 +281,7 @@
                 center: 'title',
                 right: 'month,agendaWeek,agendaDay'
             },
+            events: defaultEvents,
             editable: true,
             droppable: true, // this allows things to be dropped onto the calendar !!!
             eventLimit: true, // allow "more" link when too many events
