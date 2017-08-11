@@ -2,9 +2,19 @@
 
 ## Description
 
-SaSINFRA (**S**istema de **a**gendamentos da **S**uperintendência de **Infra**estrutura - Scheduling system of the Infrastructure Superintendence) allows the employees of the Infrastructure Superintendence to schedule cars for works visits, as well as schedule auditoriums for possible meetings and project submissions.
+SaSINFRA (**S**istema de **a**gendamentos da **S**uperintendência de **Infra**estrutura - Scheduling system of the Infrastructure Superintendence) allows the employees of the Infrastructure Superintendence to schedule cars for work visits, as well as schedule auditoriums for possible meetings and project submissions.
 
-## Some pages
+### How it works?
+
+#### Admin
+
+An administrator can register, remove or update client data and scheduling types, and has an overview of schedules made on the system.
+
+#### Client
+
+The only function that the customer can do in the system is to perform car or auditorium schedules.
+
+## Preview
 
 ### Admin side
 
@@ -14,7 +24,9 @@ SaSINFRA (**S**istema de **a**gendamentos da **S**uperintendência de **Infra**e
 
 ### Client side
 
-<img src="img/calendar.png"/>
+<img src="img/client1.png"/>
+
+<img src="img/client2.png"/>
 
 
 ## Team
